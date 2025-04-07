@@ -1,0 +1,7 @@
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_App.Tests
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.csproj.AssemblyReference.cache
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.AssemblyInfoInputs.cache
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.AssemblyInfo.cs
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.csproj.CoreCompileInputs.cache
+/private/var/tmp/Roost/RoostGPT/ui-testing/1744037974/source/MyBlazorSolution/MyBlazorSolution.Tests/MyBlazorApp/App.Tests/obj/Debug/net8.0/App.Tests.sourcelink.json
