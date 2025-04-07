@@ -7,6 +7,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp", "MyBlazorApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp.Tests", "MyBlazorApp.Tests\MyBlazorApp.Tests.csproj", "{AC15A39C-B848-48E3-A1F4-7B75598073EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Tests", "App.Tests\App.Tests.csproj", "{42CCD475-E74B-4DC3-8293-E3D01D4EABBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainLayout.Tests", "MainLayout.Tests\MainLayout.Tests.csproj", "{2FC16E23-0E01-4F7D-90AD-0F0A7A9F2006}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMenu.Tests", "NavMenu.Tests\NavMenu.Tests.csproj", "{C88DFBEF-07E5-41C1-BCFF-15337C8BD398}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Tests", "Counter.Tests\Counter.Tests.csproj", "{B04B2353-1D33-49FC-BF15-1BFCB083B2F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Tests", "Home.Tests\Home.Tests.csproj", "{73F57DDA-F644-4E0A-9470-2F82467524C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Tests", "Weather.Tests\Weather.Tests.csproj", "{FAD2F2E7-C4FD-4A76-A32F-A3F8AD964D42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Imports.Tests", "_Imports.Tests\_Imports.Tests.csproj", "{BF86D8BC-765D-43B0-9475-5913B8500F49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +38,33 @@ Global
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42CCD475-E74B-4DC3-8293-E3D01D4EABBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42CCD475-E74B-4DC3-8293-E3D01D4EABBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42CCD475-E74B-4DC3-8293-E3D01D4EABBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42CCD475-E74B-4DC3-8293-E3D01D4EABBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FC16E23-0E01-4F7D-90AD-0F0A7A9F2006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FC16E23-0E01-4F7D-90AD-0F0A7A9F2006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FC16E23-0E01-4F7D-90AD-0F0A7A9F2006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FC16E23-0E01-4F7D-90AD-0F0A7A9F2006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88DFBEF-07E5-41C1-BCFF-15337C8BD398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88DFBEF-07E5-41C1-BCFF-15337C8BD398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88DFBEF-07E5-41C1-BCFF-15337C8BD398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88DFBEF-07E5-41C1-BCFF-15337C8BD398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B04B2353-1D33-49FC-BF15-1BFCB083B2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B04B2353-1D33-49FC-BF15-1BFCB083B2F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B04B2353-1D33-49FC-BF15-1BFCB083B2F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B04B2353-1D33-49FC-BF15-1BFCB083B2F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F57DDA-F644-4E0A-9470-2F82467524C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F57DDA-F644-4E0A-9470-2F82467524C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F57DDA-F644-4E0A-9470-2F82467524C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F57DDA-F644-4E0A-9470-2F82467524C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD2F2E7-C4FD-4A76-A32F-A3F8AD964D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD2F2E7-C4FD-4A76-A32F-A3F8AD964D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD2F2E7-C4FD-4A76-A32F-A3F8AD964D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD2F2E7-C4FD-4A76-A32F-A3F8AD964D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF86D8BC-765D-43B0-9475-5913B8500F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF86D8BC-765D-43B0-9475-5913B8500F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF86D8BC-765D-43B0-9475-5913B8500F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF86D8BC-765D-43B0-9475-5913B8500F49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
