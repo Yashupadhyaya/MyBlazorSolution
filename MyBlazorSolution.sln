@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp", "MyBlazorApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp.Tests", "MyBlazorApp.Tests\MyBlazorApp.Tests.csproj", "{AC15A39C-B848-48E3-A1F4-7B75598073EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainLayout.Tests", "MyBlazorSolution.Tests\MyBlazorApp\Layout\MainLayout.Tests\MainLayout.Tests.csproj", "{F90FBCE3-A517-4F8C-BD07-18CF41870874}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMenu.Tests", "MyBlazorSolution.Tests\MyBlazorApp\Layout\NavMenu.Tests\NavMenu.Tests.csproj", "{D41F8622-08B4-4651-9CFF-7B5971C38422}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Tests", "MyBlazorSolution.Tests\MyBlazorApp\Pages\Counter.Tests\Counter.Tests.csproj", "{E4CA4769-C18B-411A-A122-9E918688A3F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Tests", "MyBlazorSolution.Tests\MyBlazorApp\Pages\Home.Tests\Home.Tests.csproj", "{08D6C518-069E-4429-9F57-5FE9DA91D525}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Tests", "MyBlazorSolution.Tests\MyBlazorApp\Pages\Weather.Tests\Weather.Tests.csproj", "{20AE364A-2215-4FA7-B25B-C2B19B7C61FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +34,25 @@ Global
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90FBCE3-A517-4F8C-BD07-18CF41870874}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90FBCE3-A517-4F8C-BD07-18CF41870874}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90FBCE3-A517-4F8C-BD07-18CF41870874}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90FBCE3-A517-4F8C-BD07-18CF41870874}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41F8622-08B4-4651-9CFF-7B5971C38422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41F8622-08B4-4651-9CFF-7B5971C38422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41F8622-08B4-4651-9CFF-7B5971C38422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41F8622-08B4-4651-9CFF-7B5971C38422}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4CA4769-C18B-411A-A122-9E918688A3F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4CA4769-C18B-411A-A122-9E918688A3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4CA4769-C18B-411A-A122-9E918688A3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4CA4769-C18B-411A-A122-9E918688A3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D6C518-069E-4429-9F57-5FE9DA91D525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D6C518-069E-4429-9F57-5FE9DA91D525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D6C518-069E-4429-9F57-5FE9DA91D525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D6C518-069E-4429-9F57-5FE9DA91D525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AE364A-2215-4FA7-B25B-C2B19B7C61FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AE364A-2215-4FA7-B25B-C2B19B7C61FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AE364A-2215-4FA7-B25B-C2B19B7C61FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AE364A-2215-4FA7-B25B-C2B19B7C61FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
