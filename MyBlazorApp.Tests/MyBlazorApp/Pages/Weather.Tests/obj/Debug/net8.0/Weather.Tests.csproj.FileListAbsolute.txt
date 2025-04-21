@@ -1,0 +1,7 @@
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_Weather.Tests
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.csproj.AssemblyReference.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.AssemblyInfoInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.AssemblyInfo.cs
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.csproj.CoreCompileInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745242175/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.sourcelink.json
