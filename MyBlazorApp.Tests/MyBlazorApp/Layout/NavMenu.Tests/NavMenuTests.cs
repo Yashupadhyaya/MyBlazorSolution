@@ -1,3 +1,12 @@
+
+// ********RoostGPT********
+/*
+
+roost_feedback [4/22/2025, 4:59:26 PM]:add some comments to the file\n\n
+*/
+
+// ********RoostGPT********
+
 using System;
 using Bunit;
 using Microsoft.AspNetCore.Components;
@@ -12,10 +21,10 @@ public class MainLayoutTest : TestContext
     [Fact]
     public void CheckInitialRenderWithCollapsedNavMenu()
     {
-        // Act
+        // Render the main layout component for testing
         var cut = RenderComponent<MainLayout>();
 
-        // Assert
+        // Check if the initial render matches the expected markup
         cut.MarkupMatches(@"<div class=""top-row ps-3 navbar navbar-dark"">
                                 <div class=""container-fluid"">
                                     <a class=""navbar-brand"" href="""">MyBlazorApp</a>
@@ -32,12 +41,14 @@ public class MainLayoutTest : TestContext
     [Fact]
     public void CheckToggleNavMenuEvent()
     {
-        // Act
+        // Render the main layout component for testing and find the navigation menu button
         var cut = RenderComponent<MainLayout>();
         var button = cut.Find("button.navbar-toggler");
+        
+        // Mimic the click event on the navigation menu button
         button.Click();
 
-        // Assert
+        // Check if the markup still contains "navbar-toggler" and doesn't contain "collapse" after the click.
         Assert.Contains("navbar-toggler", cut.Markup);
         Assert.DoesNotContain("collapse", cut.Markup);
     }
@@ -45,10 +56,10 @@ public class MainLayoutTest : TestContext
     [Fact]
     public void CheckNavMenuLinks()
     {
-        // Act
+        // Render the main layout component for testing
         var cut = RenderComponent<MainLayout>();
 
-        // Assert
+        // Check if the navigation menu contains the expected links
         Assert.Contains("Home", cut.Markup);
         Assert.Contains("href=\"\"", cut.Markup);
         Assert.Contains("Counter", cut.Markup);
