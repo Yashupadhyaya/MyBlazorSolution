@@ -1,0 +1,7 @@
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_NavMenu.Tests
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.csproj.AssemblyReference.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.AssemblyInfoInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.AssemblyInfo.cs
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.csproj.CoreCompileInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor-test/1745321011/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Layout/NavMenu.Tests/obj/Debug/net8.0/NavMenu.Tests.sourcelink.json
