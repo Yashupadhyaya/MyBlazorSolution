@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp", "MyBlazorApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBlazorApp.Tests", "MyBlazorApp.Tests\MyBlazorApp.Tests.csproj", "{AC15A39C-B848-48E3-A1F4-7B75598073EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainLayout.Tests", "MyBlazorApp.Tests\MyBlazorApp\Layout\MainLayout.Tests\MainLayout.Tests.csproj", "{F3EC3018-6F1E-41F9-ABFD-09A19562B623}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMenu.Tests", "MyBlazorApp.Tests\MyBlazorApp\Layout\NavMenu.Tests\NavMenu.Tests.csproj", "{545BE813-2DBA-4740-8968-B3CE476E8D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter.Tests", "MyBlazorApp.Tests\MyBlazorApp\Pages\Counter.Tests\Counter.Tests.csproj", "{BF0AD6FB-1DA9-4ECC-908A-705F375C1975}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Home.Tests", "MyBlazorApp.Tests\MyBlazorApp\Pages\Home.Tests\Home.Tests.csproj", "{9FEAC966-01CF-40AD-81E8-234F2E8F17DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weather.Tests", "MyBlazorApp.Tests\MyBlazorApp\Pages\Weather.Tests\Weather.Tests.csproj", "{5765F5BD-C6CD-4386-82C1-1687F6833FDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +34,25 @@ Global
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC15A39C-B848-48E3-A1F4-7B75598073EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EC3018-6F1E-41F9-ABFD-09A19562B623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EC3018-6F1E-41F9-ABFD-09A19562B623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EC3018-6F1E-41F9-ABFD-09A19562B623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EC3018-6F1E-41F9-ABFD-09A19562B623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545BE813-2DBA-4740-8968-B3CE476E8D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545BE813-2DBA-4740-8968-B3CE476E8D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545BE813-2DBA-4740-8968-B3CE476E8D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545BE813-2DBA-4740-8968-B3CE476E8D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0AD6FB-1DA9-4ECC-908A-705F375C1975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0AD6FB-1DA9-4ECC-908A-705F375C1975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0AD6FB-1DA9-4ECC-908A-705F375C1975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0AD6FB-1DA9-4ECC-908A-705F375C1975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEAC966-01CF-40AD-81E8-234F2E8F17DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEAC966-01CF-40AD-81E8-234F2E8F17DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEAC966-01CF-40AD-81E8-234F2E8F17DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEAC966-01CF-40AD-81E8-234F2E8F17DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5765F5BD-C6CD-4386-82C1-1687F6833FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5765F5BD-C6CD-4386-82C1-1687F6833FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5765F5BD-C6CD-4386-82C1-1687F6833FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5765F5BD-C6CD-4386-82C1-1687F6833FDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
