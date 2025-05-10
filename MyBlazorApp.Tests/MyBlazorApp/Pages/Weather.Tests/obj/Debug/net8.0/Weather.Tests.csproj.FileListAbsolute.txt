@@ -1,0 +1,7 @@
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/bin/Debug/net8.0/CoverletSourceRootsMapping_Weather.Tests
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.csproj.AssemblyReference.cache
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.AssemblyInfoInputs.cache
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.AssemblyInfo.cs
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.csproj.CoreCompileInputs.cache
+/var/tmp/Roost/RoostGPT/amanUITest15thApril/ed0289ae-627b-4e4e-95dc-3e9e4bb005b7/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Weather.Tests/obj/Debug/net8.0/Weather.Tests.sourcelink.json
