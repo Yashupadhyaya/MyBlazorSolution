@@ -1,0 +1,8 @@
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/bin/Debug/net9.0/.msCoverageSourceRootsMapping_Home.Tests
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/bin/Debug/net9.0/CoverletSourceRootsMapping_Home.Tests
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.csproj.AssemblyReference.cache
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.AssemblyInfoInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.AssemblyInfo.cs
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.csproj.CoreCompileInputs.cache
+/private/var/tmp/Roost/RoostGPT/blazor_test/1751613665/source/MyBlazorSolution/MyBlazorApp.Tests/MyBlazorApp/Pages/Home.Tests/obj/Debug/net9.0/Home.Tests.sourcelink.json
