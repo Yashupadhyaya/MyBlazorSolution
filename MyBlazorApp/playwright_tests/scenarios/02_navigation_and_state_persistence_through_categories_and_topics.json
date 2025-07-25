@@ -1,0 +1,105 @@
+{
+  "test_name": "Navigation and State Persistence through Categories and Topics",
+  "description": "This test ensures the proper functionality of navigation links like Categories and Topics, validating state persistence and content rendering across multiple pages.",
+  "type": "navigation",
+  "pages": [
+    "https://docs.roost.ai/",
+    "https://docs.roost.ai/shelves",
+    "https://docs.roost.ai/books"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/.",
+    "2. Verify the visibility of the 'Categories' link.",
+    "3. Click on the 'Categories' link.",
+    "4. Wait for the page to load and verify navigation to https://docs.roost.ai/shelves.",
+    "5. Verify that the categories page displays expected sections like 'Roost Admin Guide' and 'Roost User Guide'.",
+    "6. Click on the 'Topics' link on the navigation menu using its selector.",
+    "7. Wait for the page to load and verify navigation to https://docs.roost.ai/books.",
+    "8. Verify that the topics page displays expected items like 'Export Jira Ticket' and 'RoostGPT'.",
+    "9. Navigate back to the categories page and verify state persistence.",
+    "10. Refresh the categories page and verify that it reloads correctly.",
+    "11. Modify viewport to mobile dimensions and verify responsive design elements.",
+    "12. Test navigation using keyboard inputs (e.g., tab and enter keys).",
+    "13. Verify that navigation persists when switching between mobile and desktop views.",
+    "14. Navigate back to the homepage using the browser back button and verify visibility of all links on the homepage.",
+    "15. Test navigation to pages with broken links (if applicable, mock 404 responses)."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='https://docs.roost.ai/shelves']",
+      "text": "Categories",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://docs.roost.ai/",
+      "datatest-id": null
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='https://docs.roost.ai/books']",
+      "text": "Topics",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://docs.roost.ai/",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "Navigation links work correctly and load appropriate pages.",
+    "Categories and topics pages display relevant content.",
+    "State persists when navigating back and forth between pages."
+  ],
+  "edge_cases": [
+    "Attempt navigation during a network failure.",
+    "Test navigation to a non-existent category or topic.",
+    "Test navigation with screen reader tools to verify accessibility.",
+    "Test keyboard navigation using the tab and enter keys.",
+    "Verify navigation when switching between mobile and desktop views."
+  ],
+  "data_requirements": [
+    "Valid category: 'Roost Admin Guide'",
+    "Valid topic: 'Export Jira Ticket'",
+    "Invalid category: 'NonExistentCategory'",
+    "Invalid topic: 'NonExistentTopic'"
+  ],
+  "dependencies": [
+    "Links must be properly configured and functional.",
+    "Categories and topics pages must be populated with content.",
+    "Responsive design must be implemented for mobile navigation."
+  ],
+  "complexity": "medium",
+  "api_interactions": [
+    "Monitor API responses for category and topic data.",
+    "Mock 404 responses for invalid navigation links."
+  ],
+  "performance_metrics": [
+    "Page load time for categories and topics pages.",
+    "Rendering speed for navigation menus."
+  ],
+  "accessibility_requirements": [
+    "Ensure navigation links have proper aria-labels.",
+    "Verify keyboard navigation and focus indicators.",
+    "Test contrast ratios for visibility under WCAG standards."
+  ],
+  "metadata": {
+    "uuid": "6d732396-a771-405a-af8f-84f8f22d25ef",
+    "created_at": "2025-07-25T08:55:14.662373",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "keyboard-navigation",
+      "ui-test",
+      "performance",
+      "api-integration",
+      "responsive",
+      "network-resilience",
+      "accessibility",
+      "complex-scenario",
+      "navigation"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

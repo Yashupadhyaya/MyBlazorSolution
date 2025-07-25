@@ -1,0 +1,126 @@
+{
+  "test_name": "Search Functionality Validation Across Pages",
+  "description": "This scenario tests the search functionality provided on the documentation portal and its ability to return relevant results for different queries, while ensuring proper navigation and state persistence.",
+  "type": "workflow",
+  "pages": [
+    "https://docs.roost.ai/",
+    "https://docs.roost.ai/search"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/.",
+    "2. Verify that the search input field is visible and enabled.",
+    "3. Type the query 'Export Jira Ticket' into the search field using selector for input box.",
+    "4. Click the search button using its selector.",
+    "5. Wait for the page to load and verify that the URL changes to https://docs.roost.ai/search.",
+    "6. Verify that search results contain links related to 'Export Jira Ticket' such as 'Export Single Jira Ticket as XML'.",
+    "7. Click on the first search result using its selector.",
+    "8. Verify navigation to the respective page (e.g., https://docs.roost.ai/books/export-jira-ticket-in-xml).",
+    "9. Navigate back to the search page using browser back functionality.",
+    "10. Verify that the search query 'Export Jira Ticket' is still visible in the search input field.",
+    "11. Modify the query to 'RoostGPT' using the search input field.",
+    "12. Click the search button and verify updated results related to 'RoostGPT'.",
+    "13. Click on a result like 'CLI' from the updated list using the selector.",
+    "14. Verify navigation to the respective page (e.g., https://docs.roost.ai/books/roostgpt/page/cli).",
+    "15. Repeat the navigation back to the original search page and verify state persistence.",
+    "16. Test the search functionality with an invalid query like 'NonExistentTerm'.",
+    "17. Verify the presence of a no results message or empty result state.",
+    "18. Refresh the page and validate that search state is retained."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "#header-search-box-input",
+      "text": "",
+      "action": "type",
+      "value": "Export Jira Ticket",
+      "url_on_page": "https://docs.roost.ai/",
+      "datatest-id": "header-search-box-input"
+    },
+    {
+      "element_type": "button",
+      "selector": "#header-search-box-button",
+      "text": "",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://docs.roost.ai/",
+      "datatest-id": "header-search-box-button"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='https://docs.roost.ai/books/export-jira-ticket-in-xml']",
+      "text": "Export Jira Ticket in XML",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://docs.roost.ai/search",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "Search results are correctly displayed for valid queries.",
+    "No results message is displayed for invalid queries.",
+    "Navigation works correctly between search results and their respective pages.",
+    "Search query state persists after navigating back to the search page."
+  ],
+  "edge_cases": [
+    "Submit search with an empty query.",
+    "Search with special characters or SQL injection terms like '; DROP TABLE users;'.",
+    "Perform a search during a network failure and verify error handling.",
+    "Search with extremely long text input.",
+    "Search with mixed case sensitivity to test case-insensitive matching."
+  ],
+  "data_requirements": [
+    {
+      "valid_query": "Export Jira Ticket"
+    },
+    {
+      "invalid_query": "NonExistentTerm"
+    },
+    {
+      "malicious_input": "'; DROP TABLE users;"
+    },
+    {
+      "long_input": "A very long input string exceeding typical query lengths."
+    },
+    {
+      "case_sensitive_input": "RoostGPT"
+    }
+  ],
+  "dependencies": [
+    "Search index must be properly configured and populated.",
+    "Search API endpoint must be available and functional.",
+    "The page must support navigation to the search results."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "Monitor search API response for valid and invalid queries.",
+    "Mock failures for the search API to test error handling."
+  ],
+  "performance_metrics": [
+    "Search result rendering time.",
+    "Load time for search result pages."
+  ],
+  "accessibility_requirements": [
+    "Ensure search input field has appropriate aria-labels or aria-placeholder.",
+    "Verify proper tabindex and keyboard navigation for search elements.",
+    "Ensure contrast ratios for the search results are compliant with WCAG standards."
+  ],
+  "metadata": {
+    "uuid": "6ed0dcd2-18e0-4efc-a37a-8697289f6241",
+    "created_at": "2025-07-25T08:55:14.658318",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "api-integration",
+      "network-resilience",
+      "accessibility",
+      "complex-scenario",
+      "workflow"
+    ],
+    "estimated_execution_time": 90,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "test_name": "Social Login Authentication Workflow for Multiple Providers",
+  "description": "This scenario validates the social login functionality using various providers (Google, GitHub, Microsoft, Okta, Auth0, PingID) available on the login page. It ensures proper redirection, state handling, and error conditions when logging in through each provider.",
+  "type": "authentication",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/login"
+  ],
+  "steps": [
+    "1. Navigate to 'https://dev.roost.ai/login'.",
+    "2. Verify visibility and accessibility of all social login buttons.",
+    "3. Click on the 'Google Login' button.",
+    "4. Confirm redirection to Google's OAuth login page.",
+    "5. Simulate successful authentication and redirection back to 'https://dev.roost.ai/login'.",
+    "6. Verify user is automatically redirected to the application dashboard.",
+    "7. Logout and return to the login page.",
+    "8. Click on the 'GitHub Login' button.",
+    "9. Confirm redirection to GitHub's OAuth login page.",
+    "10. Simulate failed authentication and verify an appropriate error message is displayed on 'https://dev.roost.ai/login'.",
+    "11. Repeat steps 3-10 for Microsoft, Okta, Auth0, and PingID login buttons.",
+    "12. Test session persistence by refreshing the page after successful login.",
+    "13. Verify that protected routes are accessible after login.",
+    "14. Test behavior when login is interrupted (browser closed or network failure).",
+    "15. Validate logout functionality after login using each provider.",
+    "16. Use browser dev tools to simulate token expiry and verify re-authentication request."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a.google",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.git",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.azure",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.okta",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.auth0",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.pingFederate",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    }
+  ],
+  "expected_results": [
+    "User is redirected to the correct OAuth provider login page.",
+    "User is authenticated successfully and redirected to the dashboard.",
+    "Error message is displayed when authentication fails.",
+    "Session persists after page refresh.",
+    "User can access protected routes after login."
+  ],
+  "edge_cases": [
+    "OAuth callback URL is incorrect.",
+    "Token expires while the user is logged in.",
+    "Login buttons are clicked multiple times in quick succession.",
+    "Network failure during redirection to the OAuth provider.",
+    "Simulate invalid or tampered OAuth tokens."
+  ],
+  "data_requirements": [
+    "OAuth client IDs and secrets for each provider.",
+    "Valid user credentials for Google, GitHub, Microsoft, Okta, Auth0, and PingID.",
+    "Invalid credentials for each provider.",
+    "Simulated expired or invalid OAuth tokens."
+  ],
+  "dependencies": [
+    "OAuth providers must be configured correctly.",
+    "Application must be registered with each provider.",
+    "Redirect URIs must match those registered with OAuth providers."
+  ],
+  "api_interactions": [
+    "/api/auth/callback (OAuth callback endpoint)",
+    "/api/auth/session (session persistence API)"
+  ],
+  "performance_metrics": [
+    "Time taken to load the OAuth login pages.",
+    "Time taken to complete authentication and redirection."
+  ],
+  "accessibility_requirements": [
+    "All login buttons must meet WCAG 2.1 AA color contrast ratios.",
+    "Keyboard navigation support for all interactive elements.",
+    "ARIA roles must be properly defined for buttons and links."
+  ],
+  "metadata": {
+    "uuid": "601fd02f-f9bb-4c9e-a5ee-1c28e237e8aa",
+    "created_at": "2025-07-25T08:55:14.674436",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "accessibility",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "error-handling",
+      "api-integration",
+      "authentication",
+      "complex-scenario"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

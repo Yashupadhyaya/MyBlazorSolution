@@ -1,0 +1,85 @@
+{
+  "test_name": "Accessibility Compliance for Login Page",
+  "description": "This test ensures that the login page complies with WCAG guidelines, ensuring accessibility for users with disabilities.",
+  "type": "accessibility",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/login"
+  ],
+  "steps": [
+    "1. Navigate to 'https://dev.roost.ai/login'.",
+    "2. Verify all interactive elements are focusable via the keyboard.",
+    "3. Use a screen reader to navigate the page and verify proper element labeling.",
+    "4. Ensure all images (if any) have alternative text or ARIA labels.",
+    "5. Validate color contrast ratios for all text and background elements.",
+    "6. Verify that all links have descriptive and unique text.",
+    "7. Check that form controls (if any) include associated labels.",
+    "8. Simulate high-contrast mode and verify the page renders correctly.",
+    "9. Ensure that no elements are hidden from assistive technologies.",
+    "10. Test keyboard navigation through the social login buttons.",
+    "11. Test tab order to ensure logical navigation sequence.",
+    "12. Validate that error messages (if any) are announced by screen readers.",
+    "13. Simulate zooming to 200% and verify proper rendering.",
+    "14. Test dynamic content updates with ARIA live regions (if applicable)."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a.nav-link",
+      "text": "Login",
+      "action": "assert_visibility",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.google",
+      "text": "",
+      "action": "assert_visibility",
+      "url_on_page": "https://dev.roost.ai/login"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.git",
+      "text": "",
+      "action": "assert_visibility",
+      "url_on_page": "https://dev.roost.ai/login"
+    }
+  ],
+  "expected_results": [
+    "All interactive elements are accessible via keyboard navigation.",
+    "Screen readers announce proper labels and descriptions.",
+    "Color contrast ratios meet WCAG 2.1 AA standards.",
+    "Page layout remains intact during zooming or high-contrast mode."
+  ],
+  "edge_cases": [
+    "Interactive elements without proper focus states.",
+    "Missing ARIA labels for dynamic content.",
+    "Navigation breaks when using only keyboard inputs.",
+    "Improper tab order leading to user confusion."
+  ],
+  "data_requirements": [],
+  "dependencies": [],
+  "api_interactions": [],
+  "performance_metrics": [],
+  "accessibility_requirements": [
+    "Ensure compliance with WCAG 2.1 for keyboard navigation.",
+    "Verify ARIA roles and labels for all interactive elements."
+  ],
+  "metadata": {
+    "uuid": "a44722f2-d7fe-44c3-9168-9ae36010f8dd",
+    "created_at": "2025-07-25T08:55:14.676964",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "accessibility",
+      "auto-generated",
+      "keyboard-navigation",
+      "ui-test",
+      "authentication",
+      "complex-scenario"
+    ],
+    "estimated_execution_time": 70,
+    "flakiness_potential": "medium"
+  }
+}
