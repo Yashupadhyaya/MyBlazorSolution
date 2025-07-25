@@ -1,0 +1,105 @@
+{
+  "test_name": "Connector Search Functionality - Valid and Invalid Inputs",
+  "description": "This scenario tests the search functionality on the Connectors page, ensuring that valid search queries return correct results, invalid queries provide appropriate feedback, and the search box handles edge cases (e.g., empty input, special characters).",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://app.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://app.roost.ai/connectors.",
+    "2. Verify that the search bar is visible and enabled.",
+    "3. Type a valid connector name (e.g., 'GitHub') into the search bar and press Enter.",
+    "4. Verify that connector results matching the query are displayed.",
+    "5. Clear the search bar and type an invalid connector name (e.g., 'NonExistentConnector') and press Enter.",
+    "6. Verify that a 'No results found' message is displayed.",
+    "7. Enter a connector name in lowercase (e.g., 'github') and verify that results are case-insensitive.",
+    "8. Test the search functionality with special characters (e.g., '@#$%') and verify that no unexpected errors occur.",
+    "9. Leave the search bar empty and press Enter.",
+    "10. Verify that all connectors are displayed (default behavior).",
+    "11. Test the responsiveness of the search box by resizing the browser window.",
+    "12. Refresh the page and verify that the search bar is reset to its default state.",
+    "13. Use the search bar again and verify that results update dynamically without requiring another page reload.",
+    "14. Verify the tab navigation support for the search bar (focus via Tab key, type query, and press Enter).",
+    "15. Test the search functionality on a mobile-sized viewport and ensure proper rendering."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "GitHub",
+      "url_on_page": "https://app.roost.ai/connectors",
+      "datatest-id": "Connector-search-box"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "NonExistentConnector",
+      "url_on_page": "https://app.roost.ai/connectors",
+      "datatest-id": "Connector-search-box"
+    }
+  ],
+  "expected_results": [
+    "Valid connector name returns matching results.",
+    "Invalid connector name shows 'No results found' message.",
+    "Empty search input displays all connectors.",
+    "Search results update dynamically without reload.",
+    "Search bar is functional and responsive on mobile viewports."
+  ],
+  "edge_cases": [
+    "Searching with special characters like '@#$%' should not cause errors.",
+    "Case-insensitive search should return matching results.",
+    "Empty input should not break the page functionality.",
+    "Extremely long input should not cause UI issues.",
+    "Non-alphanumeric characters in the search query should be handled gracefully."
+  ],
+  "data_requirements": [
+    "valid_query: 'GitHub'",
+    "invalid_query: 'NonExistentConnector'",
+    "special_characters: '@#$%'",
+    "empty_query: ''",
+    "long_query: 'a'.repeat(100)"
+  ],
+  "dependencies": [
+    "Connectors must exist in the system for valid search queries.",
+    "Search endpoint must be functional and return results.",
+    "UI elements for displaying search results must be implemented."
+  ],
+  "api_interactions": [
+    "/api/v1/connectors (GET)"
+  ],
+  "performance_metrics": [
+    "Search results should load within 2 seconds.",
+    "No significant performance degradation with long queries."
+  ],
+  "accessibility_requirements": [
+    "Search bar must have appropriate ARIA roles (e.g., role='searchbox').",
+    "Search button must support keyboard navigation.",
+    "Error messages must be announced by screen readers."
+  ],
+  "metadata": {
+    "uuid": "5b74e9be-9378-46f5-b2d6-cf315f076578",
+    "created_at": "2025-07-25T13:20:56.370303",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "data_validation",
+      "error-handling",
+      "performance",
+      "auto-generated",
+      "accessibility",
+      "api-integration",
+      "form-submission",
+      "responsive",
+      "complex-scenario",
+      "ui-test"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

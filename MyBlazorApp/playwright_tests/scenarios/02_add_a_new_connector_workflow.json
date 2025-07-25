@@ -1,0 +1,90 @@
+{
+  "test_name": "Add a New Connector Workflow",
+  "description": "This scenario tests the end-to-end flow for adding a new connector on the Connectors page, ensuring proper data validation, error handling, and API interaction.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://app.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://app.roost.ai/connectors.",
+    "2. Verify the presence of an 'Add Connector' button.",
+    "3. Click the 'Add Connector' button.",
+    "4. Verify that a modal or new page appears for adding a connector.",
+    "5. Enter valid data into the required fields (e.g., connector name, API key).",
+    "6. Submit the form and verify that a success message is displayed.",
+    "7. Verify that the new connector is listed on the page.",
+    "8. Attempt to add a connector with missing required fields and verify that appropriate error messages are displayed.",
+    "9. Test adding a connector with duplicate data (e.g., existing connector name) and verify that an error is shown.",
+    "10. Reload the page and verify that the new connector persists.",
+    "11. Attempt to edit the connector and verify successful updates.",
+    "12. Delete the connector and verify its removal."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-connector-button']",
+      "text": "Add Connector",
+      "action": "click",
+      "url_on_page": "https://app.roost.ai/connectors",
+      "datatest-id": "add-connector-button"
+    }
+  ],
+  "expected_results": [
+    "New connector is successfully added and listed.",
+    "Error messages displayed for invalid inputs.",
+    "Duplicate connector addition is prevented.",
+    "Connectors persist across page reloads."
+  ],
+  "edge_cases": [
+    "Adding a connector with missing required fields should fail.",
+    "Adding a connector with invalid characters in the name should fail.",
+    "Adding a connector with duplicate data should fail.",
+    "Long connector names should not break the UI.",
+    "Network failures during addition should be handled gracefully."
+  ],
+  "data_requirements": [
+    "valid_connector_name: 'GitHub'",
+    "invalid_connector_name: '@#$%'",
+    "duplicate_connector_name: 'GitHub'",
+    "missing_api_key: ''",
+    "valid_api_key: '12345-abcde'"
+  ],
+  "dependencies": [
+    "API endpoint for adding connectors must be functional.",
+    "Validation rules for connector data must be implemented.",
+    "Connectors list must update dynamically after addition."
+  ],
+  "api_interactions": [
+    "/api/v1/connectors (POST)"
+  ],
+  "performance_metrics": [
+    "Connector addition should complete within 3 seconds.",
+    "Page should remain responsive during the process."
+  ],
+  "accessibility_requirements": [
+    "Modal or form for adding connector must be keyboard-navigable.",
+    "Error messages must be announced by screen readers.",
+    "All form inputs must have appropriate labels."
+  ],
+  "metadata": {
+    "uuid": "08a77713-2851-403e-9057-7796208609fb",
+    "created_at": "2025-07-25T13:20:56.373676",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "error-handling",
+      "performance",
+      "auto-generated",
+      "accessibility",
+      "api-integration",
+      "ui-test",
+      "workflow",
+      "complex-scenario",
+      "data-validation"
+    ],
+    "estimated_execution_time": 60,
+    "flakiness_potential": "medium"
+  }
+}
