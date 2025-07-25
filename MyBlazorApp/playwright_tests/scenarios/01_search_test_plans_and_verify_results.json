@@ -1,0 +1,110 @@
+{
+  "test_name": "Search Test Plans and Verify Results",
+  "description": "This scenario tests the search functionality for test plans, ensuring the input field works correctly, filters results in real-time, and handles edge cases like invalid input gracefully.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility and enablement of the search input field.",
+    "3. Type a valid test plan name into the search field and assert that the search input reflects the typed value.",
+    "4. Assert that the search results update dynamically to match the input.",
+    "5. Type an invalid or non-existing test plan name and verify that no results are displayed.",
+    "6. Clear the search field and verify that all test plans are displayed.",
+    "7. Test the search functionality with special characters like '@#$%^&*' and assert proper error handling or no results.",
+    "8. Reload the page and verify that the search input and results reset to default state.",
+    "9. Test the responsiveness of the search field by resizing the browser window.",
+    "10. Test cross-browser compatibility by executing the search functionality in Chrome, Firefox, and Safari.",
+    "11. Test the accessibility of the search field by navigating using keyboard shortcuts (Tab, Enter).",
+    "12. Verify that the placeholder text 'Search for Test Plans' is visible when the search field is empty.",
+    "13. Enable real-time monitoring of API calls triggered by the search interaction.",
+    "14. Simulate a slow network and verify that the search results handle delays gracefully.",
+    "15. Submit the search field with an empty value and verify the behavior (default or error)."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "Test Plan 1",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search input reflects the entered value correctly.",
+    "Search results dynamically update based on the input.",
+    "No results are displayed for invalid or non-existing search terms.",
+    "All results are displayed when the search field is cleared.",
+    "Special characters do not crash the search functionality.",
+    "Search field resets completely upon page reload."
+  ],
+  "edge_cases": [
+    "Enter a search term with special characters.",
+    "Search for a very long string (e.g., 1000 characters).",
+    "Search with leading and trailing spaces.",
+    "Submit the search field with an empty value.",
+    "Simulate network disconnection during the search process."
+  ],
+  "data_requirements": [
+    "valid_test_plan_name: 'Test Plan 1'",
+    "invalid_test_plan_name: 'NonExistingTestPlan'",
+    "special_characters_input: '@#$%^&*'",
+    "empty_string_input: ''",
+    "long_string_input: 'a'.repeat(1000)"
+  ],
+  "dependencies": [
+    "At least one valid test plan exists in the system.",
+    "API endpoint for search functionality is active.",
+    "UI elements for search are fully loaded before interaction."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/searchTestPlans",
+      "method": "GET",
+      "mock_response": {
+        "results": [
+          "Test Plan 1",
+          "Test Plan 2"
+        ]
+      },
+      "error_handling": {
+        "404": "No test plans found.",
+        "500": "Internal server error."
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Search results must load within 500ms.",
+    "No UI lag when typing in the search field."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for keyboard navigation and placeholder text visibility.",
+    "Ensure ARIA roles are defined for the search input."
+  ],
+  "metadata": {
+    "uuid": "33fe3375-5217-4308-90e6-c81898d4a902",
+    "created_at": "2025-07-25T09:27:26.551537",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "data_validation",
+      "complex-scenario",
+      "keyboard-navigation",
+      "auto-generated",
+      "api-integration",
+      "accessibility",
+      "ui-test",
+      "error-handling",
+      "performance",
+      "form-submission"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

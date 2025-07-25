@@ -1,0 +1,110 @@
+{
+  "test_name": "Search Test Plans Using Valid and Invalid Inputs",
+  "description": "This scenario tests the search functionality on the Test Plans page for valid, invalid, empty, and special character inputs. It ensures the search bar behaves as expected, and results are accurate and responsive.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Test Plans'.",
+    "3. Enter a valid test plan name (e.g., 'Login Test') into the search bar and press Enter.",
+    "4. Verify that the results display only test plans matching the query.",
+    "5. Clear the search bar and input an invalid test plan name (e.g., 'InvalidName123') and press Enter.",
+    "6. Verify that no results are displayed, and a 'No results found' message is shown.",
+    "7. Clear the search bar and input special characters (e.g., '@#$%^&*') and press Enter.",
+    "8. Verify that no results are displayed, and a 'No results found' message or appropriate validation error is shown.",
+    "9. Test an empty input by leaving the search field blank and pressing Enter.",
+    "10. Verify that no action is taken or the results default to showing all test plans.",
+    "11. Perform the search by partial matches (e.g., input 'Log') and verify that all matching test plans are displayed.",
+    "12. Test case insensitivity by entering 'login test' (lowercase) and verifying it matches 'Login Test'.",
+    "13. Verify that the search results update dynamically (if applicable) as text is typed.",
+    "14. Test navigating to a test plan in the results by clicking its name and ensure the Test Plan Details page loads.",
+    "15. Return to the Test Plans page and ensure the search field retains the previous query (state persistence).",
+    "16. Clear the search field and press Enter to reset the results.",
+    "17. Verify that the results return to showing all available test plans."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "Login Test",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "clear",
+      "value": "",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search results match the input query accurately.",
+    "Invalid or special character inputs return a 'No results found' message.",
+    "Empty input does not perform a search or defaults to showing all test plans.",
+    "Search is case-insensitive and matches partial queries.",
+    "The Test Plans page retains the previous query after navigating back."
+  ],
+  "edge_cases": [
+    "Input a very long string (e.g., 5000 characters) and verify behavior.",
+    "Input only whitespace (e.g., spaces or tabs) and verify no results are displayed.",
+    "Perform rapid searches in succession and verify responsiveness.",
+    "Perform a search and immediately refresh the page to verify persistence of search results.",
+    "Test for SQL injection-like input (e.g., ' OR 1=1 --') and ensure no errors or unexpected results."
+  ],
+  "data_requirements": [
+    {
+      "test_plan_name": "Login Test",
+      "test_plan_partial_match": "Log",
+      "test_plan_invalid": "InvalidName123",
+      "test_plan_special_characters": "@#$%^&*",
+      "test_plan_case_insensitivity": "login test"
+    }
+  ],
+  "dependencies": [
+    "At least one valid test plan must exist in the system.",
+    "Test Plans data must be pre-populated for accurate testing.",
+    "The search bar must be implemented and functional on the page."
+  ],
+  "api_interactions": [
+    "Search API endpoint (if applicable) must be monitored for responses.",
+    "Mock invalid or empty responses to ensure error handling is effective."
+  ],
+  "performance_metrics": [
+    "Search results update within 1 second of input.",
+    "No lag or delay in rendering the results."
+  ],
+  "accessibility_requirements": [
+    "Search bar must be accessible via keyboard navigation.",
+    "Placeholder text and search results must meet WCAG color contrast requirements.",
+    "Search results must be screen-reader friendly and announce changes dynamically."
+  ],
+  "metadata": {
+    "uuid": "9e2ffde1-1b15-4131-997e-3cd56a8e156a",
+    "created_at": "2025-07-25T09:27:26.564267",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "mobile",
+      "data_validation",
+      "complex-scenario",
+      "auto-generated",
+      "api-integration",
+      "accessibility",
+      "ui-test",
+      "error-handling",
+      "performance",
+      "form-submission"
+    ],
+    "estimated_execution_time": 85,
+    "flakiness_potential": "medium"
+  }
+}

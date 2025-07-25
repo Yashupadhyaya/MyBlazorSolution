@@ -1,0 +1,97 @@
+{
+  "test_name": "Pagination Functionality",
+  "description": "This scenario tests the navigation through multiple pages of the connector list using pagination controls. It ensures correctness of page navigation, state persistence, and performance.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify the visibility of pagination controls (First, Previous, Next, Last).",
+    "3. Click on the 'Next' button to navigate to the second page.",
+    "4. Verify the second page of connectors is displayed.",
+    "5. Click on the 'Previous' button to return to the first page.",
+    "6. Verify the first page of connectors is displayed.",
+    "7. Click on the 'Last' button.",
+    "8. Verify that the last page of connectors is displayed.",
+    "9. Click on the 'First' button.",
+    "10. Verify that the first page of connectors is displayed.",
+    "11. Reload the page and verify that the pagination resets to the first page."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-first-page-button']",
+      "text": "First",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "paginator-first-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-icon']",
+      "text": "\u00bb",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "arrow-icon"
+    }
+  ],
+  "expected_results": [
+    "Pagination controls are functional and clickable.",
+    "Navigating between pages displays the correct data.",
+    "Reloading the page resets pagination to the first page."
+  ],
+  "edge_cases": [
+    "Attempt to navigate past the last page.",
+    "Attempt to navigate to a page with no data.",
+    "Trigger multiple pagination requests simultaneously.",
+    "Disconnect from the network while paginating.",
+    "Check if pagination controls are disabled when not applicable (e.g., on the first page)."
+  ],
+  "data_requirements": [
+    "Connector list with at least 5 pages of data.",
+    "Empty page scenario (no connectors).",
+    "Concurrency scenario with multiple users paginating."
+  ],
+  "dependencies": [
+    "The connector list must contain multiple pages of data.",
+    "Pagination API must be operational.",
+    "User must have the necessary permissions to view connectors."
+  ],
+  "api_interactions": [
+    "GET /connectors?page=1",
+    "GET /connectors?page=2",
+    "GET /connectors?page=last"
+  ],
+  "performance_metrics": [
+    "Page navigation should occur in under 1 second.",
+    "Data for the next page should load within 2 seconds."
+  ],
+  "accessibility_requirements": [
+    "Ensure pagination controls are keyboard navigable.",
+    "Validate focus order for pagination controls.",
+    "Ensure proper ARIA labels for pagination buttons."
+  ],
+  "metadata": {
+    "uuid": "dee3053a-3e28-402f-9293-86e492bc35ee",
+    "created_at": "2025-07-25T09:27:26.561299",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "navigation",
+      "complex-scenario",
+      "concurrency",
+      "auto-generated",
+      "api-integration",
+      "accessibility",
+      "ui-test",
+      "performance",
+      "form-submission"
+    ],
+    "estimated_execution_time": 55,
+    "flakiness_potential": "medium"
+  }
+}
