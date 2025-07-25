@@ -1,0 +1,95 @@
+{
+  "test_name": "Verify Navigation Links Functionality Across the Header",
+  "description": "This scenario ensures that all navigation links in the header (e.g., 'RoostGPT', 'Admin', 'Connectors') direct users to the correct pages and are accessible across different viewports.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests",
+    "https://dev.roost.ai/roostgpt",
+    "https://dev.roost.ai/admin/app",
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the presence and visibility of navigation links in the header.",
+    "3. Click on the 'RoostGPT' link and ensure it navigates to https://dev.roost.ai/roostgpt.",
+    "4. Verify the page title and URL to confirm successful navigation.",
+    "5. Click on the 'Admin' link and ensure it navigates to https://dev.roost.ai/admin/app.",
+    "6. Verify the page title and contents specific to the Admin page.",
+    "7. Click on the 'Connectors' link and ensure it navigates to https://dev.roost.ai/connectors.",
+    "8. Verify the Connectors page loads correctly with the expected content.",
+    "9. Return to https://dev.roost.ai/roostgpt/tests and confirm the current state is preserved.",
+    "10. Test each link on a mobile viewport (e.g., 375px width) to ensure accessibility."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='roostGPT-tab']",
+      "text": "RoostGPT",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "roostGPT-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='admin-tab']",
+      "text": "Admin",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "admin-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='connectors-tab']",
+      "text": "Connectors",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "connectors-tab"
+    }
+  ],
+  "expected_results": [
+    "Navigation to each page is successful.",
+    "The expected content of each page is loaded correctly.",
+    "All links function on both desktop and mobile viewports."
+  ],
+  "edge_cases": [
+    "Simulate slow network and test navigation behavior.",
+    "Test navigation links with JavaScript disabled.",
+    "Check behavior if a link's target page is unavailable (404 error).",
+    "Test navigation links in incognito mode.",
+    "Test with browser extensions that block JavaScript."
+  ],
+  "data_requirements": [],
+  "dependencies": [
+    "Ensure the target pages ('RoostGPT', 'Admin', 'Connectors') are live and accessible.",
+    "Header navigation links are implemented correctly on the Test Plans page."
+  ],
+  "api_interactions": [],
+  "performance_metrics": [
+    "Navigation response time (<2s for page load)."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1: Verify that links have descriptive text for screen readers.",
+    "WCAG 2.1: Ensure focus indicators are visible for each link.",
+    "WCAG 2.1: Verify keyboard navigation to all links in the header."
+  ],
+  "metadata": {
+    "uuid": "43a9e223-b8d2-4212-b3c1-7d679aa5e09a",
+    "created_at": "2025-07-25T10:39:33.822755",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "performance",
+      "complex-scenario",
+      "auto-generated",
+      "responsive",
+      "ui-test",
+      "accessibility",
+      "navigation"
+    ],
+    "estimated_execution_time": 50,
+    "flakiness_potential": "medium"
+  }
+}

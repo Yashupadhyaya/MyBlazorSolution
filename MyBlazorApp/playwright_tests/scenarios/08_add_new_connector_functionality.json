@@ -1,0 +1,117 @@
+{
+  "test_name": "Add New Connector Functionality",
+  "description": "This test validates the ability to add a new connector, ensuring that the form submission works correctly, handles errors gracefully, and updates the connectors list upon successful addition.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Click on the 'Add Connector' button (if available).",
+    "3. Verify that the 'Add Connector' form is displayed.",
+    "4. Fill out the connector name field with a valid name.",
+    "5. Select an available connector type from a dropdown if present.",
+    "6. Click the 'Submit' button.",
+    "7. Verify that the new connector is added to the connectors list.",
+    "8. Attempt to add a connector with a duplicate name.",
+    "9. Verify that an error message is displayed indicating duplicate entries are not allowed.",
+    "10. Attempt to submit the form without any data.",
+    "11. Verify that validation messages appear for required fields.",
+    "12. Validate the error handling by simulating a network failure during form submission.",
+    "13. Refresh the page and verify the new connector persists in the list."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-connector-button']",
+      "text": "Add Connector",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "add-connector-button"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='connector-name']",
+      "text": "",
+      "action": "type",
+      "value": "NewConnector",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "connector-name"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='submit-connector']",
+      "text": "Submit",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "submit-connector"
+    }
+  ],
+  "expected_results": [
+    "The new connector is displayed in the connectors list after submission.",
+    "Error messages are displayed for invalid or duplicate submissions.",
+    "Validation errors are shown for missing required fields.",
+    "Network errors during submission display appropriate error messages."
+  ],
+  "edge_cases": [
+    "Submit the form with a duplicate connector name.",
+    "Submit the form with missing required fields.",
+    "Simulate a network timeout during form submission.",
+    "Attempt to add a connector with special characters in the name (e.g., '@#$%^').",
+    "Refresh the page before submitting the form to ensure the form state is cleared."
+  ],
+  "data_requirements": [
+    "valid_connector_name: 'ValidConnector1'",
+    "duplicate_connector_name: 'ExistingConnector'",
+    "invalid_connector_name: '@#$%^'",
+    "missing_required_field: ''",
+    "boundary_connector_name: 'A'"
+  ],
+  "dependencies": [
+    "The 'Add Connector' button must be present on the page.",
+    "The form submission API must be functional for testing.",
+    "The connectors list should reflect changes dynamically."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/connectors",
+      "type": "POST",
+      "expected_responses": [
+        "201: Connector created successfully",
+        "400: Validation error (e.g., duplicate name, missing fields)",
+        "500: Server error"
+      ]
+    }
+  ],
+  "performance_metrics": [
+    "Form submission should complete within 1 second.",
+    "The connectors list should update within 2 seconds after submission."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 - All form fields should be accessible via keyboard.",
+    "WCAG 2.1 - ARIA attributes should be present for form error messages.",
+    "WCAG 2.1 - Buttons should have proper focus states for screen readers."
+  ],
+  "metadata": {
+    "uuid": "5fdaf63d-6060-48f2-a669-19d36f8a0c02",
+    "created_at": "2025-07-25T10:39:33.837535",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "performance",
+      "error-handling",
+      "api-integration",
+      "complex-scenario",
+      "auto-generated",
+      "data_validation",
+      "ui-test",
+      "accessibility",
+      "form-submission"
+    ],
+    "estimated_execution_time": 65,
+    "flakiness_potential": "medium"
+  }
+}
