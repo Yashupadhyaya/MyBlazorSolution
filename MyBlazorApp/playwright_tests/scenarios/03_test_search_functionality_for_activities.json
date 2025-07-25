@@ -1,0 +1,96 @@
+{
+  "test_name": "Test Search Functionality for Activities",
+  "description": "This scenario tests the search functionality on the 'Generations' page to ensure accurate filtering of activities based on user input.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/events"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/events.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Activities'.",
+    "3. Type a valid search term into the search input field (e.g., 'Test Plan 1').",
+    "4. Assert that the results update to display only items matching the search term.",
+    "5. Clear the search input field.",
+    "6. Assert that the search results reset to display all available items.",
+    "7. Type a term that does not match any activities (e.g., 'NonExistentActivity').",
+    "8. Assert that no results are displayed and an appropriate 'No Results Found' message is shown.",
+    "9. Test search functionality with special characters (e.g., '!@#$%^').",
+    "10. Assert that the input is sanitized and does not cause UI or backend errors.",
+    "11. Reload the page and verify that the search input field is cleared.",
+    "12. Perform a new search and confirm the results update dynamically.",
+    "13. Navigate to another menu option (e.g., 'Analysis') and return to the 'Generations' page.",
+    "14. Assert that the search input field does not retain previously entered values.",
+    "15. Verify the behavior of the search field when resizing the browser window.",
+    "16. Assert that the search function works properly on mobile viewport sizes."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": "events-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search results update dynamically as users type.",
+    "Search results reset when the search input is cleared.",
+    "An appropriate message 'No Results Found' is displayed when no matches are found.",
+    "The search input sanitizes special characters and prevents UI or backend errors."
+  ],
+  "edge_cases": [
+    "Enter a search query with special characters (e.g., '!@#$%').",
+    "Perform a search with an empty string or spaces.",
+    "Type a search query that matches multiple results and verify all are displayed.",
+    "Test search functionality with a very long string exceeding typical input length.",
+    "Perform search with a term that partially matches available results."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'Test Plan 1'",
+    "invalid_search_term: 'NonExistentActivity'",
+    "special_characters: '!@#$%^'",
+    "long_input: 'a'.repeat(256)",
+    "empty_input: ''"
+  ],
+  "dependencies": [
+    "Activities must exist in the system for search testing.",
+    "The page must be fully loaded before initiating the test.",
+    "The search API or filtering logic must be functional."
+  ],
+  "api_interactions": [
+    "Monitor API calls triggered by search input for proper parameters and expected responses.",
+    "Mock API errors to test search error handling."
+  ],
+  "performance_metrics": [
+    "Search results should update within 200ms after input.",
+    "API response time for search queries should be below 500ms."
+  ],
+  "accessibility_requirements": [
+    "Input field must have an accessible label or placeholder text.",
+    "Keyboard navigation must allow focusing and typing in the search field.",
+    "Ensure WCAG 2.1 compliance for text contrast and focus indicators."
+  ],
+  "metadata": {
+    "uuid": "91f6ef88-5fb4-41e0-bada-79086c2623d6",
+    "created_at": "2025-07-25T09:43:15.577915",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "responsive",
+      "form-submission",
+      "data_validation",
+      "accessibility"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

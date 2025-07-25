@@ -1,0 +1,119 @@
+{
+  "test_name": "Navigation Between Tabs",
+  "description": "This scenario verifies the user's ability to navigate between various tabs on the Generations page and related sections (e.g., Test Plans, Analysis) and ensures that navigation preserves state and updates the URL accordingly.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/events",
+    "https://dev.roost.ai/roostgpt/tests",
+    "https://dev.roost.ai/roostgpt/analyses"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/events.",
+    "2. Verify that the 'Generations' tab is active by default.",
+    "3. Click on the 'Test Plans' tab.",
+    "4. Verify that the URL changes to https://dev.roost.ai/roostgpt/tests.",
+    "5. Verify that the 'Test Plans' content is loaded successfully.",
+    "6. Click on the 'Analysis' tab.",
+    "7. Verify that the URL changes to https://dev.roost.ai/roostgpt/analyses.",
+    "8. Verify that the 'Analysis' content is loaded successfully.",
+    "9. Return to the 'Generations' tab by clicking on it.",
+    "10. Verify that the URL changes back to https://dev.roost.ai/roostgpt/events.",
+    "11. Validate that the 'Generations' content is displayed correctly.",
+    "12. Reload the page and ensure that the current tab remains active.",
+    "13. Test navigation using browser back and forward buttons.",
+    "14. Test tab navigation on a mobile viewport.",
+    "15. Test keyboard navigation using the 'Tab' key to switch between tabs.",
+    "16. Verify focus indicators are visible for active tabs.",
+    "17. Simulate a slow network to verify tab content loads appropriately."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/tests']",
+      "text": "Test Plans",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": ""
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": ""
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/events']",
+      "text": "Generations",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": ""
+    }
+  ],
+  "expected_results": [
+    "The active tab is highlighted.",
+    "URL updates correctly based on the selected tab.",
+    "The content for the selected tab is displayed without errors.",
+    "Tab navigation using keyboard and mouse is functional."
+  ],
+  "edge_cases": [
+    "Switching tabs during a network slowdown.",
+    "Reloading the page after switching tabs.",
+    "Navigating back to a tab that was previously loaded.",
+    "Testing with an unsupported browser.",
+    "Testing the tab order with keyboard navigation."
+  ],
+  "data_requirements": [
+    "valid_tab_names: ['Generations', 'Test Plans', 'Analysis']"
+  ],
+  "dependencies": [
+    "All tabs must have corresponding content pages.",
+    "Tab navigation logic must be implemented correctly.",
+    "The application must handle URL-based navigation."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/tabs/generations",
+      "method": "GET"
+    },
+    {
+      "endpoint": "/api/tabs/tests",
+      "method": "GET"
+    },
+    {
+      "endpoint": "/api/tabs/analyses",
+      "method": "GET"
+    }
+  ],
+  "performance_metrics": [
+    "Tab switch response time should be under 250ms.",
+    "Tab content loading time should be under 1 second."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for focus management and tab navigation."
+  ],
+  "metadata": {
+    "uuid": "cf21258a-1a64-4380-849d-93c5abcbb5c9",
+    "created_at": "2025-07-25T09:43:15.597685",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "responsive",
+      "navigation",
+      "accessibility",
+      "network-resilience",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 85,
+    "flakiness_potential": "medium"
+  }
+}

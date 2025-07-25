@@ -1,0 +1,110 @@
+{
+  "test_name": "Search Test Plans with Filtered Results",
+  "description": "Validates the search functionality and filtering of test plans. Ensures that the search box correctly filters results based on user input and displays relevant data.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the 'Search for Test Plans' input field.",
+    "3. Type 'taher' into the search box.",
+    "4. Press Enter or wait for the search to auto-trigger.",
+    "5. Verify that the results only display links with 'taher' in their text.",
+    "6. Clear the search input by deleting entered text.",
+    "7. Verify that the full list of test plan links reappears.",
+    "8. Enter an invalid search term like 'invalid123'.",
+    "9. Verify that no results are displayed with a proper message indicating 'No results found'.",
+    "10. Test a partial search term such as 'ta' and verify that matching items are displayed.",
+    "11. Verify the 'Search for Test Plans' field retains the entered value on page reload.",
+    "12. Perform the search functionality across multiple browser tabs.",
+    "13. Test the responsiveness of the search functionality by reducing the viewport size.",
+    "14. Verify the accessibility compliance for the search field (e.g., proper aria-labels and focus states).",
+    "15. Attempt search functionality while the server is under high load and ensure timely responses."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "taher",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/taher']",
+      "text": "taher",
+      "action": "assert_visibility",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/priya.ranjan']",
+      "text": "priya.ranjan",
+      "action": "assert_not_visible",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    }
+  ],
+  "expected_results": [
+    "Search results dynamically update according to the input term.",
+    "No results are displayed when no matches are found.",
+    "Search field retains input across page refresh.",
+    "Filtered links show correctly and match the search query."
+  ],
+  "edge_cases": [
+    "Enter special characters like '@#$%' into the search box.",
+    "Search for common terms that match multiple items.",
+    "Perform search while network connectivity fluctuates.",
+    "Use an extremely long search term to test input limits.",
+    "Search with an empty input field and verify no changes."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'taher'",
+    "invalid_search_term: 'invalid123'",
+    "partial_search_term: 'ta'",
+    "special_character_search_term: '@#$%'",
+    "large_search_term: 'a'.repeat(100)"
+  ],
+  "dependencies": [
+    "Test plan data must exist in the system and be associated with user accounts.",
+    "Search functionality must be responsive and backed by an API.",
+    "System must handle high concurrency for search queries."
+  ],
+  "api_interactions": [
+    "GET /roostgpt/tests?search=<term>"
+  ],
+  "performance_metrics": [
+    "Search response time should be under 500ms.",
+    "Ensure rendering does not block interaction during filtering."
+  ],
+  "accessibility_requirements": [
+    "Ensure the search input has aria-labels.",
+    "Verify proper keyboard navigation support.",
+    "Ensure high contrast for text in the search field."
+  ],
+  "metadata": {
+    "uuid": "3c90463b-c1c9-4432-b170-de83a34b413d",
+    "created_at": "2025-07-25T09:43:15.583376",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "accessibility",
+      "complex-scenario",
+      "responsive",
+      "data-validation",
+      "form-submission",
+      "data_validation",
+      "network-resilience"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

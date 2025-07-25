@@ -1,0 +1,114 @@
+{
+  "test_name": "Search for Test Plans and Validate Results",
+  "description": "This test validates the search functionality of the 'Test Plans' section by entering various queries, ensuring search results are accurate, and edge cases are handled.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://app.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://app.roost.ai/roostgpt/tests.",
+    "2. Ensure the 'Search for Test Plans' input box is visible and enabled.",
+    "3. Enter a valid search term (e.g., 'harish') and simulate pressing the Enter key.",
+    "4. Validate that the search results are filtered to include only test plans with the term 'harish' in their name or creator field.",
+    "5. Clear the search input and verify that all test plans are displayed again.",
+    "6. Enter a partial search term (e.g., 'ha') and verify that it returns results with partial matches.",
+    "7. Enter a search term that does not exist (e.g., 'nonexistent') and verify an empty results state or 'No results found' message.",
+    "8. Enter special characters (e.g., '!@#$%') and verify that the input is sanitized and does not break the UI or backend.",
+    "9. Perform a search with an extremely long string (e.g., 500+ characters) and validate proper truncation or error handling.",
+    "10. Refresh the page and verify that the search input is reset and all test plans are displayed.",
+    "11. Test search functionality with whitespace-only queries and ensure results are not filtered incorrectly.",
+    "12. Verify keyboard navigation by tabbing into the search box, entering a query, and pressing Enter.",
+    "13. Validate that the search box is accessible and has proper ARIA labels (if applicable).",
+    "14. Attempt to type into the search box while the page is still loading and verify no errors occur.",
+    "15. Verify responsiveness by testing the search functionality on smaller screen sizes."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "harish",
+      "url_on_page": "https://app.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search results are filtered based on the input query.",
+    "'No results found' message is displayed for nonexistent queries.",
+    "The search input box retains its placeholder text when cleared.",
+    "UI remains responsive during and after search operations.",
+    "Special characters are handled gracefully without breaking the application."
+  ],
+  "edge_cases": [
+    "Enter a search query with only whitespace characters.",
+    "Enter a search query with only special characters.",
+    "Enter a query that matches multiple test plans and validate correct result sorting.",
+    "Search with a query while the page is still loading.",
+    "Search on a mobile device and validate correct functionality."
+  ],
+  "data_requirements": [
+    "Existing test plans with names like 'harish', 'urvi', etc.",
+    "Special characters for input validation testing.",
+    "Long strings for testing input limits.",
+    "Empty input for testing default behavior."
+  ],
+  "dependencies": [
+    "Test plans must exist in the system with varying names.",
+    "The application backend must be operational to process search queries.",
+    "The search functionality must be implemented and accessible on the page."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/testplans/search",
+      "method": "GET",
+      "mock_data": {
+        "query": "harish",
+        "results": [
+          {
+            "id": 1,
+            "name": "Test Plan Harish"
+          },
+          {
+            "id": 2,
+            "name": "Another Harish Test Plan"
+          }
+        ]
+      },
+      "error_response": {
+        "status": 500,
+        "message": "Internal Server Error"
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Search response time under 500ms.",
+    "Dropdown rendering within 200ms after receiving results.",
+    "No significant increase in CPU usage during search operations."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for input labels.",
+    "Keyboard navigation support for search functionality.",
+    "Proper focus management when interacting with the search box."
+  ],
+  "metadata": {
+    "uuid": "3464077e-2789-4edb-9e54-1847c796d653",
+    "created_at": "2025-07-25T09:43:15.570999",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "data_validation",
+      "accessibility",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

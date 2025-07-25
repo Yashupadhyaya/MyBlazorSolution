@@ -1,0 +1,108 @@
+{
+  "test_name": "Search Functionality with Activity Filter",
+  "description": "This scenario tests the search functionality for activities on the Generations page. It ensures that search queries produce accurate results, handle edge cases like empty or invalid inputs, and validate the system's state persistence after search operations.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/events"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/events.",
+    "2. Verify the visibility of the search bar with placeholder text 'Search for Activities'.",
+    "3. Enter a valid activity name into the search bar.",
+    "4. Press 'Enter' or trigger the search functionality.",
+    "5. Validate that the list of activities updates with results matching the search query.",
+    "6. Clear the search field and verify that the full list of activities is restored.",
+    "7. Enter an invalid activity name that does not exist in the database.",
+    "8. Trigger the search functionality and verify that a 'No results found' message is displayed.",
+    "9. Enter a partial activity name and trigger the search functionality.",
+    "10. Validate that results include activities containing the partial search term.",
+    "11. Test the search functionality with special characters (e.g., '@#$%^&*').",
+    "12. Validate the system's response and ensure no crashes or errors occur.",
+    "13. Test the search bar with an empty input and press 'Enter'.",
+    "14. Verify that the search operation does not proceed and the full list remains visible.",
+    "15. Reload the page and verify that any previous search state is cleared.",
+    "16. Validate that the search bar is still functional after a page reload.",
+    "17. Change the browser viewport size to mobile dimensions and ensure the search bar is visible and functional.",
+    "18. Test keyboard navigation by focusing on the search bar using the 'Tab' key and entering a search query.",
+    "19. Use browser back and forward buttons to ensure search results and page state persist.",
+    "20. Perform the entire workflow on another browser to verify cross-browser compatibility."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "Test Activity",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": "events-search-box"
+    }
+  ],
+  "expected_results": [
+    "The search bar is visible on the page.",
+    "Search results update dynamically based on valid input.",
+    "An appropriate message ('No results found') is displayed for invalid or non-matching queries.",
+    "Special character inputs are handled gracefully without system crashes.",
+    "The full list of activities is restored after clearing the search field or reloading the page."
+  ],
+  "edge_cases": [
+    "Search with an empty input.",
+    "Search with special characters.",
+    "Search with a long string exceeding typical input limits.",
+    "Search for a common activity name that returns multiple results.",
+    "Search during a simulated network slowdown or failure."
+  ],
+  "data_requirements": [
+    "valid_activity_name: 'Test Activity'",
+    "invalid_activity_name: 'Invalid Activity'",
+    "partial_activity_name: 'Test'",
+    "special_characters: '@#$%^&*'",
+    "empty_input: ''"
+  ],
+  "dependencies": [
+    "At least one activity must be preloaded in the database.",
+    "The search feature must be implemented and functional.",
+    "The page must load successfully without errors."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/activities/search",
+      "method": "GET",
+      "mock_response": {
+        "results": []
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Search bar response time should be under 200ms.",
+    "Search results rendering time should be under 500ms."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for keyboard navigation.",
+    "Proper ARIA attributes on the search bar."
+  ],
+  "metadata": {
+    "uuid": "4f878f95-a00a-4329-a99c-33b533879ca8",
+    "created_at": "2025-07-25T09:43:15.594944",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "accessibility",
+      "complex-scenario",
+      "error-handling",
+      "responsive",
+      "form-submission",
+      "data_validation",
+      "network-resilience",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 100,
+    "flakiness_potential": "medium"
+  }
+}

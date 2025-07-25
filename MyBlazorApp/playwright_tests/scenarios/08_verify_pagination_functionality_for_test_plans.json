@@ -1,0 +1,134 @@
+{
+  "test_name": "Verify Pagination Functionality for Test Plans",
+  "description": "This scenario tests the pagination controls on the 'Test Plans' page, ensuring users can navigate between pages and that state is handled correctly.",
+  "type": "navigation",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of pagination controls (First, Last, numbered pages).",
+    "3. Click on page '2' and verify the content updates to reflect the second page results.",
+    "4. Navigate to the next page using the '>>' button and verify results.",
+    "5. Navigate to the last page using the 'Last' button.",
+    "6. Verify the 'Last' button is disabled when already on the last page.",
+    "7. Use the '<' button to navigate back to the previous page and verify results.",
+    "8. Click on 'First' button to navigate back to the first page.",
+    "9. Verify the content updates dynamically to reflect the current page number.",
+    "10. Reload the page and verify the pagination does not persist.",
+    "11. Test boundary condition by attempting to navigate beyond the last available page.",
+    "12. Assert proper error messages or disabled buttons for invalid navigation attempts.",
+    "13. Rapidly navigate through pages to test responsiveness and API throttling.",
+    "14. Verify accessibility compliance for pagination buttons (ARIA roles, keyboard navigation).",
+    "15. Test pagination responsiveness on mobile devices and different viewport sizes.",
+    "16. Verify pagination state management with multiple browsers open simultaneously.",
+    "17. Assert API interactions for pagination endpoint calls with correct page numbers.",
+    "18. Test performance of pagination under high load conditions.",
+    "19. Verify no duplicate or missing results on any page.",
+    "20. Ensure pagination controls are visually distinguishable and usable."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-first-page-button']",
+      "text": "First",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "paginator-first-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-left']",
+      "text": "\u00ab",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "arrow-left"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-icon']",
+      "text": "\u00bb",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "arrow-icon"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-last-page-button']",
+      "text": "Last",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "paginator-last-page-button"
+    }
+  ],
+  "expected_results": [
+    "Pagination controls navigate to correct pages.",
+    "'Last' button is disabled on the last page.",
+    "'First' button navigates back to the first page.",
+    "Boundary conditions are handled gracefully without errors.",
+    "Rapid navigation does not cause API throttling or crashes."
+  ],
+  "edge_cases": [
+    "Attempt navigation beyond the last page.",
+    "Rapid consecutive clicks on pagination controls.",
+    "Reload page and verify current page is reset.",
+    "Use pagination controls with network connectivity issues.",
+    "Verify behavior for empty pages (no results)."
+  ],
+  "data_requirements": [
+    {
+      "valid_page": 1
+    },
+    {
+      "invalid_page": 999
+    },
+    {
+      "high_load_test_data": "1000+ test plans in database"
+    },
+    {
+      "empty_page_test_data": "Database cleared for pagination test"
+    }
+  ],
+  "dependencies": [
+    "Database must contain multiple pages of test plans.",
+    "Pagination API must be functional.",
+    "Error handling must be implemented for out-of-bounds navigation."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    {
+      "endpoint": "/api/testplans?page=2",
+      "method": "GET",
+      "expected_response": "200 OK with page 2 results"
+    }
+  ],
+  "performance_metrics": [
+    "Pagination content load time (<2 seconds).",
+    "API response time for pagination (<1 second)."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance: ARIA attributes for pagination controls.",
+    "Keyboard navigation support for pagination buttons."
+  ],
+  "metadata": {
+    "uuid": "b9297544-4bfc-47fd-b311-0fef07dc35d0",
+    "created_at": "2025-07-25T09:43:15.591900",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "responsive",
+      "navigation",
+      "accessibility",
+      "network-resilience",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 100,
+    "flakiness_potential": "medium"
+  }
+}

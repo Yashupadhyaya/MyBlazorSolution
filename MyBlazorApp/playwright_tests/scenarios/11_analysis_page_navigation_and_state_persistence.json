@@ -1,0 +1,138 @@
+{
+  "test_name": "Analysis Page Navigation and State Persistence",
+  "description": "This test verifies the ability to navigate to the Analysis page, interact with its elements, and ensure state persistence across reloads and navigation events.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai",
+    "https://dev.roost.ai/roostgpt/analyses"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/analyses.",
+    "2. Verify the presence and visibility of the 'Analysis' tab link with text 'Analysis'.",
+    "3. Click on the 'Analysis' tab link to ensure the user is directed to the correct URL.",
+    "4. Verify the visibility of the search input box with the placeholder 'Search for Activities'.",
+    "5. Type the search query 'Test Plan A' into the search box.",
+    "6. Verify that the search results update dynamically to include relevant activities.",
+    "7. Clear the search input field and verify that the full list of activities is restored.",
+    "8. Refresh the page and verify that the search state is reset.",
+    "9. Verify that the Analysis tab remains active and highlighted after reload.",
+    "10. Navigate to the 'Test Plans' page using the 'Test Plans' link.",
+    "11. Return to the 'Analysis' page using the 'Analysis' tab link.",
+    "12. Verify that the previously inputted search term does not persist across navigation.",
+    "13. Test browser back functionality by navigating back to the 'Test Plans' page and returning to 'Analysis'.",
+    "14. Verify responsiveness of the page on viewport resize to simulate mobile and tablet views.",
+    "15. Assert that no broken or inaccessible elements exist on the page."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": null
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": null,
+      "action": "type",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "events-search-box",
+      "value": "Test Plan A"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/tests']",
+      "text": "Test Plans",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": null
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "The user is correctly navigated to the Analysis page upon clicking the 'Analysis' tab.",
+    "Search input dynamically updates based on the query 'Test Plan A'.",
+    "Clearing the search box restores the full list of activities.",
+    "Page reload does not retain any previous search state.",
+    "Browser back functionality correctly restores the previous page's state.",
+    "Page elements remain accessible and visible regardless of viewport resizing."
+  ],
+  "edge_cases": [
+    "Enter a search query with special characters ('!@#$%^&*()').",
+    "Enter a blank search query and verify the behavior.",
+    "Attempt to navigate to the Analysis page with an invalid session.",
+    "Test navigation to the Analysis page during a slow network condition.",
+    "Check search input functionality when the backend service is down."
+  ],
+  "data_requirements": [
+    "search_query_valid: 'Test Plan A'",
+    "search_query_special: '!@#$%^&*()'",
+    "search_query_empty: ''",
+    "search_query_long: 'Test Plan A Test Plan A Test Plan A Test Plan A'",
+    "search_query_numeric: '123456'"
+  ],
+  "dependencies": [
+    "Application server must be running and accessible.",
+    "User must have access to the Analysis page.",
+    "Search functionality must be integrated with the backend service."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/searchActivities",
+      "method": "GET",
+      "mock_response": {
+        "status": 200,
+        "data": [
+          {
+            "activity_name": "Test Plan A",
+            "updated_at": "2023-10-01T12:00:00Z"
+          },
+          {
+            "activity_name": "Test Plan B",
+            "updated_at": "2023-10-02T12:00:00Z"
+          }
+        ]
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Page load time < 2 seconds.",
+    "Search results update within < 1 second after query input.",
+    "Rendering efficiency when resizing viewport."
+  ],
+  "accessibility_requirements": [
+    "Verify all interactive elements have proper aria attributes.",
+    "Ensure contrast ratio meets WCAG AA standards.",
+    "Test keyboard navigation compatibility for all interactive elements."
+  ],
+  "metadata": {
+    "uuid": "ea1b1b22-ea8c-4f0b-bcb4-a0b5527c26f0",
+    "created_at": "2025-07-25T09:43:15.600925",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "responsive",
+      "workflow",
+      "accessibility",
+      "network-resilience"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}
