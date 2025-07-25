@@ -1,0 +1,114 @@
+{
+  "test_name": "Search for Test Plans and Verify Results",
+  "description": "This scenario tests the 'Search for Test Plans' functionality to ensure that valid and edge case inputs return the correct results or appropriate error messages.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the search input box labeled 'Search for Test Plans'.",
+    "3. Type a valid test plan name into the search box.",
+    "4. Press the Enter key or trigger the search functionality.",
+    "5. Verify that the results in the test plans table match the search query.",
+    "6. Clear the search input and type a random string that does not match any test plan.",
+    "7. Press the Enter key or trigger the search functionality.",
+    "8. Verify that an appropriate 'No results found' message is displayed.",
+    "9. Clear the search input and enter SQL injection strings (e.g., ' OR 1=1 -- ).",
+    "10. Press the Enter key or trigger the search functionality.",
+    "11. Verify that the input is sanitized and no results or errors are displayed.",
+    "12. Clear the search input and enter special characters (e.g., '@#$%^&*').",
+    "13. Press the Enter key or trigger the search functionality.",
+    "14. Verify that the input is sanitized and no results or errors are displayed.",
+    "15. Reload the page and verify that the search query and results are reset.",
+    "16. Type a valid test plan name and verify the result count matches the database record.",
+    "17. Attempt to use the search input while the page is loading and verify no issues occur.",
+    "18. Test the search field with extremely long strings and verify the application handles this gracefully.",
+    "19. Use keyboard navigation (Tab/Shift+Tab) to focus on the search box and verify accessibility.",
+    "20. Verify visually that the search input remains responsive across different screen sizes."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Results should correctly filter based on the search query for valid inputs.",
+    "An appropriate 'No results found' message is displayed for invalid queries.",
+    "SQL injection and special characters are sanitized to prevent security vulnerabilities.",
+    "No errors or crashes occur when using edge case inputs.",
+    "Search results reset after the page reloads."
+  ],
+  "edge_cases": [
+    "Entering special characters as a query.",
+    "Using SQL injection strings as input.",
+    "Typing an extremely long string.",
+    "Using the search while the page is still loading.",
+    "Typing a string with leading/trailing spaces."
+  ],
+  "data_requirements": [
+    "Valid test plan name: 'RegressionTest1'",
+    "Invalid test plan name: 'NonExistentTestPlan'",
+    "Special characters: '@#$%^&*()'",
+    "SQL injection string: ' OR 1=1 --",
+    "Long string: 'a'.repeat(5000)"
+  ],
+  "dependencies": [
+    "The test plans database must contain at least one valid test plan.",
+    "The search functionality must be implemented and functional.",
+    "The test plans table must be visible on the page."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/testplans/search",
+      "method": "GET",
+      "expected_responses": [
+        {
+          "status": 200,
+          "body": "List of test plans matching the query"
+        },
+        {
+          "status": 404,
+          "body": "No test plans found"
+        }
+      ]
+    }
+  ],
+  "performance_metrics": [
+    "Search results should appear within 300ms of submitting a query.",
+    "The page should not freeze or lag when handling large inputs."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1: Ensure the search input is keyboard-navigable.",
+    "Ensure the label 'Search for Test Plans' is associated with the input field.",
+    "Check color contrast for the placeholder text."
+  ],
+  "metadata": {
+    "uuid": "abd43eca-18a5-4d71-8bec-745971dbaa23",
+    "created_at": "2025-07-25T10:39:33.830474",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "performance",
+      "error-handling",
+      "api-integration",
+      "complex-scenario",
+      "auto-generated",
+      "data_validation",
+      "keyboard-navigation",
+      "ui-test",
+      "accessibility",
+      "form-submission"
+    ],
+    "estimated_execution_time": 100,
+    "flakiness_potential": "medium"
+  }
+}

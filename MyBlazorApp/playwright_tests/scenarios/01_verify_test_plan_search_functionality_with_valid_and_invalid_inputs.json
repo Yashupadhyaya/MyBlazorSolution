@@ -1,0 +1,102 @@
+{
+  "test_name": "Verify Test Plan Search Functionality with Valid and Invalid Inputs",
+  "description": "This scenario tests the behavior of the search functionality on the Test Plans page by providing valid, invalid, and edge-case inputs. It ensures that the search feature filters results correctly and handles invalid inputs gracefully.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Test Plans'.",
+    "3. Type a valid search term (e.g., 'Regression') into the search box.",
+    "4. Press Enter or wait for the results to auto-update.",
+    "5. Verify that the results displayed match the search term.",
+    "6. Clear the search box.",
+    "7. Type an invalid search term (e.g., 'zzzzzzzz') and press Enter.",
+    "8. Verify that no results are displayed and an appropriate message (e.g., 'No test plans found') is shown.",
+    "9. Clear the search box again.",
+    "10. Type a search term with special characters (e.g., '@#$%^&*') and press Enter.",
+    "11. Verify that the system handles the input without crashing and displays either no results or a validation message.",
+    "12. Test entering an extremely long string (e.g., 500+ characters).",
+    "13. Verify the input field's handling of large inputs (e.g., truncation, error message).",
+    "14. Perform a case-sensitivity test by entering a search term in uppercase and lowercase.",
+    "15. Verify that search results are consistent regardless of case.",
+    "16. Use the browser's refresh function and verify that any applied search filter is cleared.",
+    "17. Validate that resetting the search box restores the full list of test plans."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "Search term",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search results correctly filter based on the valid search term.",
+    "No results are displayed for invalid search terms, with an appropriate message shown.",
+    "Special character inputs do not cause crashes or unhandled exceptions.",
+    "Case-insensitive search produces consistent results.",
+    "Long inputs are handled gracefully without breaking the UI."
+  ],
+  "edge_cases": [
+    "Enter a string with only special characters as input.",
+    "Use an empty search input and press Enter.",
+    "Test with duplicate search terms.",
+    "Enter an invalid Unicode character.",
+    "Simulate slow network conditions during search filtering."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'Regression'",
+    "invalid_search_term: 'zzzzzzzz'",
+    "special_characters: '@#$%^&*'",
+    "extremely_long_input: 'a'.repeat(500)",
+    "case_sensitive_input: ['TestPlan', 'testplan']"
+  ],
+  "dependencies": [
+    "At least one test plan exists in the system.",
+    "The search functionality is fully implemented.",
+    "The user has access to the Test Plans page."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/test-plans",
+      "method": "GET",
+      "mock_response": "List of test plans filtered by search query"
+    }
+  ],
+  "performance_metrics": [
+    "Search input responsiveness (<200ms for keypress).",
+    "Search results update within 1s of input submission."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1: Ensure the search input has a visible label or aria-label.",
+    "WCAG 2.1: Test keyboard navigation and ensure the search box is focusable.",
+    "WCAG 2.1: Verify screen reader announces the input field and search results."
+  ],
+  "metadata": {
+    "uuid": "80a431af-c7ac-4a4c-b52f-ce6514029bbc",
+    "created_at": "2025-07-25T10:39:33.818800",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "performance",
+      "error-handling",
+      "api-integration",
+      "complex-scenario",
+      "auto-generated",
+      "data_validation",
+      "ui-test",
+      "accessibility",
+      "form-submission"
+    ],
+    "estimated_execution_time": 85,
+    "flakiness_potential": "medium"
+  }
+}

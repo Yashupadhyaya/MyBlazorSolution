@@ -1,0 +1,133 @@
+{
+  "test_name": "Search and Pagination Workflow for Connectors",
+  "description": "This test validates the search functionality and pagination workflow on the Connectors page. It ensures that users can search connectors by keyword, navigate through paginated results, and verify the state persistence of the search query and page selection.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Connectors'.",
+    "3. Enter a valid search term into the search input (e.g., 'Test Connector') and press Enter.",
+    "4. Verify that the search results update to display connectors matching the search term.",
+    "5. Click on the second page button in the paginator.",
+    "6. Verify that the second page of search results is displayed.",
+    "7. Reload the page.",
+    "8. Validate that the search term and pagination state persist after the reload.",
+    "9. Clear the search input by deleting all text and pressing Enter.",
+    "10. Verify that the full list of connectors is displayed again.",
+    "11. Test edge navigation by clicking the 'Last' button in the paginator.",
+    "12. Verify that the last page of the connectors list is displayed.",
+    "13. Navigate back to the first page using the 'First' button.",
+    "14. Validate the search and pagination workflow using an invalid search term (e.g., 'NonExistentConnector').",
+    "15. Confirm that a 'No results found' message is displayed.",
+    "16. Reset the search and pagination state by refreshing the page."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "Test Connector",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "Connector-search-box"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-first-page-button']",
+      "text": "First",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "paginator-first-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-last-page-button']",
+      "text": "Last",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "paginator-last-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-left']",
+      "text": "\u00ab",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "arrow-left"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-icon']",
+      "text": "\u00bb",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "arrow-icon"
+    }
+  ],
+  "expected_results": [
+    "Search results reflect the entered keyword.",
+    "Pagination buttons navigate to the correct pages.",
+    "Search term and pagination state persist after a page reload.",
+    "Invalid search terms return a 'No results found' message.",
+    "Clearing search input resets the list to display all connectors."
+  ],
+  "edge_cases": [
+    "Enter an empty search term and press Enter.",
+    "Perform a search and navigate to a non-existent page number.",
+    "Perform a search and manually refresh the browser without applying changes.",
+    "Enter a search term with special characters (e.g., '@#$%^').",
+    "Rapidly click multiple pagination buttons to test state consistency."
+  ],
+  "data_requirements": [
+    "search_term_valid: 'Test Connector'",
+    "search_term_invalid: 'NonExistentConnector'",
+    "search_term_special_chars: '@#$%^'",
+    "empty_search_term: ''",
+    "search_term_boundary: 'a'"
+  ],
+  "dependencies": [
+    "A list of connectors must exist on the page.",
+    "The search functionality must filter the connectors list dynamically.",
+    "Pagination buttons must be functional and connected to the dataset."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/connectors",
+      "type": "GET",
+      "expected_responses": [
+        "200: List of connectors",
+        "404: No results found for the search term"
+      ]
+    }
+  ],
+  "performance_metrics": [
+    "Search results should load within 2 seconds for any query.",
+    "Pagination actions should render the next page within 1 second."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 - Input fields should be accessible via keyboard.",
+    "WCAG 2.1 - Pagination buttons should have proper focus states.",
+    "WCAG 2.1 - ARIA attributes should be present for screen readers."
+  ],
+  "metadata": {
+    "uuid": "53c84050-6799-43a4-81a4-51fbfafd3d64",
+    "created_at": "2025-07-25T10:39:33.835122",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "performance",
+      "api-integration",
+      "complex-scenario",
+      "auto-generated",
+      "workflow",
+      "ui-test",
+      "accessibility"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

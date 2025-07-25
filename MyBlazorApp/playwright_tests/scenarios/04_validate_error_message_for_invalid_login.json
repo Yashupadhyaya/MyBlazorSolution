@@ -1,0 +1,117 @@
+{
+  "test_name": "Validate Error Message for Invalid Login",
+  "description": "This scenario tests the error handling of the login form when an invalid email or password is used. It ensures proper error messages are displayed without creating a session.",
+  "type": "error_handling",
+  "complexity": "high",
+  "pages": [
+    "https://docs.roost.ai/login"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/login.",
+    "2. Verify the visibility of the email and password input fields.",
+    "3. Verify the visibility of the 'Log In' button and ensure it is enabled.",
+    "4. Enter an invalid email into the email input field.",
+    "5. Enter a valid password into the password input field.",
+    "6. Click the 'Log In' button.",
+    "7. Verify that an error message is displayed saying 'Invalid email or password.'",
+    "8. Clear the email and password fields.",
+    "9. Enter a valid email into the email input field.",
+    "10. Enter an invalid password into the password input field.",
+    "11. Click the 'Log In' button.",
+    "12. Verify that the same error message is displayed.",
+    "13. Clear both input fields and leave them empty.",
+    "14. Click the 'Log In' button.",
+    "15. Verify that the error message indicates that both fields are required."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input#email",
+      "text": "Email",
+      "action": "type",
+      "value": "invalid_user@example.com",
+      "url_on_page": "https://docs.roost.ai/login",
+      "datatest-id": null
+    },
+    {
+      "element_type": "input",
+      "selector": "input#password",
+      "text": "Password",
+      "action": "type",
+      "value": "InvalidPassword",
+      "url_on_page": "https://docs.roost.ai/login",
+      "datatest-id": null
+    },
+    {
+      "element_type": "button",
+      "selector": "button.button",
+      "text": "Log In",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/login",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "An error message 'Invalid email or password.' is displayed when invalid credentials are used.",
+    "No session token is created if login fails.",
+    "The error message is cleared when the input fields are updated."
+  ],
+  "edge_cases": [
+    "Submit the form with only one field filled.",
+    "Submit the form with both fields empty.",
+    "Submit the form with special characters in the email field.",
+    "Submit the form with a valid email but incorrect password multiple times consecutively.",
+    "Submit the form with a SQL injection attempt in the email field."
+  ],
+  "data_requirements": [
+    "invalid_email: 'invalid_user@example.com'",
+    "valid_password: 'SecurePassword123'",
+    "valid_email: 'valid_user@example.com'",
+    "invalid_password: 'InvalidPassword'"
+  ],
+  "dependencies": [
+    "The invalid email must not exist in the system.",
+    "The server must handle incorrect login attempts correctly.",
+    "The error message element must be visible and accessible."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/auth/login",
+      "method": "POST",
+      "expected_response_code": 401,
+      "mock_response": {
+        "status": "error",
+        "message": "Invalid email or password."
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Time taken for the error message to appear after submission.",
+    "CPU usage when validating input on the client-side."
+  ],
+  "accessibility_requirements": [
+    "Ensure error messages are properly announced by screen readers.",
+    "Verify the form fields have associated hint text for invalid state."
+  ],
+  "metadata": {
+    "uuid": "732e91be-1e18-44c1-a08e-045b570c6942",
+    "created_at": "2025-07-25T10:39:33.827653",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "performance",
+      "error-handling",
+      "api-integration",
+      "complex-scenario",
+      "auto-generated",
+      "authentication",
+      "ui-test",
+      "accessibility",
+      "form-submission",
+      "error_handling"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}
