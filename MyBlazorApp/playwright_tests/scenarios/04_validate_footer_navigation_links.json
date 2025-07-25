@@ -1,0 +1,109 @@
+{
+  "test_name": "Validate Footer Navigation Links",
+  "description": "This test ensures that all footer navigation links function correctly and lead to the expected external or internal pages. It also validates proper redirection and UI responsiveness.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/admin/app",
+    "https://roost.ai",
+    "https://roost.ai/privacy-policy",
+    "https://docs.roost.ai",
+    "https://roost.ai/docs/api"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/admin/app.",
+    "2. Scroll to the footer section of the page.",
+    "3. Click the 'About Roost' link.",
+    "4. Verify that the page redirects to https://roost.ai.",
+    "5. Return to https://dev.roost.ai/admin/app.",
+    "6. Click the 'Privacy Policy' link.",
+    "7. Verify that the page redirects to https://roost.ai/privacy-policy.",
+    "8. Return to https://dev.roost.ai/admin/app.",
+    "9. Click the 'Documentation' link.",
+    "10. Verify that it redirects to https://docs.roost.ai.",
+    "11. Return to https://dev.roost.ai/admin/app.",
+    "12. Click the 'API Reference' link.",
+    "13. Verify that the page redirects to https://roost.ai/docs/api."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a.footer-item[href='https://roost.ai']",
+      "text": "About Roost",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/admin/app"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.footer-item[href='https://roost.ai/privacy-policy']",
+      "text": "Privacy Policy",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/admin/app"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.footer-item[href='https://docs.roost.ai']",
+      "text": "Documentation",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/admin/app"
+    },
+    {
+      "element_type": "link",
+      "selector": "a.footer-item[href='/docs/api']",
+      "text": "API Reference",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/admin/app"
+    }
+  ],
+  "expected_results": [
+    "Links redirect to the correct pages.",
+    "No 404 or unexpected error pages are encountered.",
+    "Navigation is smooth and occurs within 2 seconds."
+  ],
+  "edge_cases": [
+    "Test redirection when the target link is down (e.g., 500 error).",
+    "Verify behavior when an external link is broken.",
+    "Simulate high latency during redirection.",
+    "Test for typos in link URLs that lead to incorrect pages.",
+    "Ensure links open in the correct browsing context (new tab or same tab)."
+  ],
+  "data_requirements": [
+    "Valid URLs for all footer links.",
+    "Simulated network failures for error handling."
+  ],
+  "dependencies": [
+    "Footer links must be present and visible.",
+    "The external pages must be accessible for testing.",
+    "Admin user must be logged in."
+  ],
+  "api_interactions": [
+    "Monitor outgoing requests to URLs (e.g., success statuses)."
+  ],
+  "performance_metrics": [
+    "Measure redirection time (<2 seconds).",
+    "Validate smooth scrolling to the footer."
+  ],
+  "accessibility_requirements": [
+    "Ensure focus is visible on footer links when using keyboard navigation.",
+    "Verify correct aria-labels for screen readers."
+  ],
+  "metadata": {
+    "uuid": "f8273cde-6933-4add-98f1-d491779d0e57",
+    "created_at": "2025-07-25T10:10:58.299810",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "auto-generated",
+      "mobile",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "navigation"
+    ],
+    "estimated_execution_time": 65,
+    "flakiness_potential": "medium"
+  }
+}

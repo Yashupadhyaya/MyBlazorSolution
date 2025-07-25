@@ -1,0 +1,100 @@
+{
+  "test_name": "Accessibility Compliance for Analysis Page",
+  "description": "Validates that all interactive elements on the Analysis page comply with WCAG accessibility standards and are operable via assistive technologies.",
+  "type": "accessibility",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/analyses"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/analyses.",
+    "2. Verify that all dropdowns have ARIA roles correctly set (e.g., role='combobox').",
+    "3. Assert that all interactive buttons are navigable using the Tab key.",
+    "4. Use a screen reader to read the labels for the search box and filters.",
+    "5. Verify that text contents are readable and contrast ratios meet WCAG AA standards.",
+    "6. Test all toggles for keyboard operability (e.g., pressing Enter or Space).",
+    "7. Assert that error states for invalid inputs (e.g., empty search) are announced by screen readers.",
+    "8. Check that the table is navigable using keyboard navigation.",
+    "9. Verify that sortable columns have proper ARIA attributes (e.g., aria-sort).",
+    "10. Test responsiveness by resizing the window to a mobile viewport.",
+    "11. Verify that all UI elements are accessible on a mobile screen using gesture-based navigation."
+  ],
+  "selectors": [
+    {
+      "element_type": "dropdown",
+      "selector": "select[data-testid='status-filter']",
+      "text": "Status Filter",
+      "action": "assert_aria_role",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "status-filter"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": "Search Box",
+      "action": "assert_keyboard_navigation",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "events-search-box",
+      "value": ""
+    },
+    {
+      "element_type": "table",
+      "selector": "table[data-testid='results-table']",
+      "text": "Results Table",
+      "action": "assert_keyboard_navigation",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "results-table"
+    }
+  ],
+  "expected_results": [
+    "Screen reader announces all labels accurately.",
+    "Keyboard navigation works for all interactive elements.",
+    "Contrast ratios meet WCAG AA standards.",
+    "Error states are announced by screen readers.",
+    "Mobile responsiveness retains all accessibility features."
+  ],
+  "edge_cases": [
+    "No ARIA roles set for dropdowns.",
+    "Contrast ratios fail under low-light settings.",
+    "Search box inaccessible via keyboard navigation.",
+    "Sortable columns missing accessibility attributes.",
+    "Auto-refresh interrupts screen reader announcements."
+  ],
+  "data_requirements": [
+    "Accessible labels for all interactive elements.",
+    "Valid ARIA roles for dropdowns and table headers.",
+    "Color scheme meeting WCAG contrast requirements."
+  ],
+  "dependencies": [
+    "Screen reader software installed.",
+    "Browser supports accessibility tools.",
+    "UI framework adheres to WCAG standards."
+  ],
+  "complexity": "high",
+  "api_interactions": [],
+  "performance_metrics": [
+    "Screen reader announcement timing.",
+    "Keyboard navigation speed."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for all interactive elements.",
+    "Proper ARIA roles and attributes for dropdowns and tables."
+  ],
+  "metadata": {
+    "uuid": "5291d7e2-4e58-4087-803a-8951d9d73f80",
+    "created_at": "2025-07-25T10:10:58.304994",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "responsive",
+      "auto-generated",
+      "keyboard-navigation",
+      "ui-test",
+      "performance"
+    ],
+    "estimated_execution_time": 55,
+    "flakiness_potential": "medium"
+  }
+}

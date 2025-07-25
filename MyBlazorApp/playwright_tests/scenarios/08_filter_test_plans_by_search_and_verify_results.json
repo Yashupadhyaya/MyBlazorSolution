@@ -1,0 +1,93 @@
+{
+  "test_name": "Filter Test Plans by Search and Verify Results",
+  "description": "Tests the filtering functionality of the 'Search for Test Plans' input field to ensure only matching results are displayed.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify that the 'Search for Test Plans' input field is visible and enabled.",
+    "3. Type a valid test plan name into the search input field.",
+    "4. Verify that the visible list of test plans updates to show only matching results.",
+    "5. Clear the search input field.",
+    "6. Verify that all test plans are displayed again.",
+    "7. Type a partial test plan name.",
+    "8. Verify that the visible list matches all test plans containing the partial name.",
+    "9. Enter a non-existent test plan name.",
+    "10. Verify that no results are displayed and a 'No results found' message is shown.",
+    "11. Test case-insensitive search by entering the same name in different casing.",
+    "12. Verify that results are returned regardless of case.",
+    "13. Enter a name with leading and trailing whitespaces.",
+    "14. Verify that the search results are unaffected by the whitespaces.",
+    "15. Perform a search with a name containing special characters.",
+    "16. Verify that results are returned for names with exact matching special characters."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    }
+  ],
+  "expected_results": [
+    "The search input field is visible and accepts input.",
+    "The test plan list updates dynamically as search input is entered.",
+    "Clearing the search input displays all test plans.",
+    "Searching with non-existent names shows no results.",
+    "Case-insensitive searches return expected results.",
+    "Special character searches match the exact special characters in test plan names."
+  ],
+  "edge_cases": [
+    "Enter an empty string in the search field and verify all test plans are displayed.",
+    "Enter a string exceeding the maximum character limit for the search field.",
+    "Search with a mix of valid and invalid characters.",
+    "Search with SQL injection strings like ' OR 1=1; -- and verify no results are returned.",
+    "Search with XSS payloads like <script>alert('XSS')</script> and verify input sanitization."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'Test Plan B'",
+    "partial_search_term: 'Plan'",
+    "non_existent_search_term: 'NonExistent'",
+    "special_character_search_term: '@TestPlan!'",
+    "case_insensitive_search_term: 'test plan b'"
+  ],
+  "dependencies": [
+    "The test plan list must contain at least one test plan.",
+    "The search functionality must be implemented on the page.",
+    "The backend API for searching test plans must support partial matches."
+  ],
+  "api_interactions": [
+    "GET /api/test-plans?search={query} (for fetching filtered test plans)"
+  ],
+  "performance_metrics": [
+    "Time taken to filter the test plan list after typing in the search field."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for the search input field.",
+    "Aria-labels for the search input field.",
+    "Keyboard accessibility for focusing and typing in the search field."
+  ],
+  "metadata": {
+    "uuid": "3632d108-10a9-40a8-9bda-9e8e2662a248",
+    "created_at": "2025-07-25T10:10:58.309133",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "form-submission",
+      "auto-generated",
+      "data_validation",
+      "api-integration",
+      "ui-test",
+      "performance"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

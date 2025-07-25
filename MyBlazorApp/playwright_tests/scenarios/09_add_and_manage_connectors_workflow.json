@@ -1,0 +1,131 @@
+{
+  "test_name": "Add and Manage Connectors Workflow",
+  "description": "This scenario tests the ability to add a new connector, verify its presence in the list, and manage it (info, edit, delete). It ensures proper state management, data integrity, and UI responsiveness.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify the visibility of 'Add Connector' button.",
+    "3. Click on the 'Add Connector' button.",
+    "4. Fill out the Add Connector form (fields not provided in UI data, assume generic fields like 'Name' and 'Details').",
+    "5. Click the 'Save' button.",
+    "6. Verify that the new connector is added to the connectors list.",
+    "7. Search for the newly added connector using the search box.",
+    "8. Verify the connector appears in the filtered results.",
+    "9. Click the 'Info' button for the connector.",
+    "10. Verify the Info modal displays correct details about the connector.",
+    "11. Click the 'Edit' button for the connector.",
+    "12. Modify the connector details and click 'Save'.",
+    "13. Verify the modified connector details appear in the list.",
+    "14. Click the 'Delete' button for the connector.",
+    "15. Confirm the delete action.",
+    "16. Search again for the deleted connector.",
+    "17. Verify the connector no longer appears in the list.",
+    "18. Reload the page and verify the connector is still removed."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-connector-button']",
+      "text": "Add Connector",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "Test Connector",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='info-button']",
+      "text": "Info",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='edit-button']",
+      "text": "Edit",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='delete-button']",
+      "text": "Delete",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    }
+  ],
+  "expected_results": [
+    "The new connector is displayed in the connectors list after adding.",
+    "The Info modal shows correct details about the connector.",
+    "The edited connector details are reflected in the list.",
+    "The connector is no longer visible in the table after deletion.",
+    "State persists correctly after page reload."
+  ],
+  "edge_cases": [
+    "Try adding a connector with an empty name.",
+    "Edit the connector to have an empty name.",
+    "Search for a connector that does not exist.",
+    "Cancel the delete operation and verify the connector is still present.",
+    "Perform simultaneous edits to the same connector from two sessions."
+  ],
+  "data_requirements": [
+    "connector_name: 'Test Connector'",
+    "connector_details: 'This is a test connector.'",
+    "empty_name: ''",
+    "invalid_name: '!@#$%'",
+    "long_name: 'Connector Name Exceeding Character Limit'"
+  ],
+  "dependencies": [
+    "User must be logged in.",
+    "Connector management functionality must be enabled.",
+    "Backend API for connectors must be operational."
+  ],
+  "api_interactions": [
+    "POST /api/connectors (add connector)",
+    "GET /api/connectors (list connectors)",
+    "PUT /api/connectors/:id (edit connector)",
+    "DELETE /api/connectors/:id (delete connector)"
+  ],
+  "performance_metrics": [
+    "Time taken to add a connector.",
+    "Time taken to fetch and display connectors list.",
+    "Time taken to perform search."
+  ],
+  "accessibility_requirements": [
+    "Ensure 'Add Connector' button is keyboard accessible.",
+    "Verify screen reader announces modal dialogs correctly.",
+    "Test color contrast for buttons and text.",
+    "Ensure form fields have proper labels."
+  ],
+  "metadata": {
+    "uuid": "6245ea8d-8d11-4b8b-9c8f-91d0e4a089f9",
+    "created_at": "2025-07-25T10:10:58.313943",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "auto-generated",
+      "mobile",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "workflow",
+      "concurrency",
+      "data-validation"
+    ],
+    "estimated_execution_time": 90,
+    "flakiness_potential": "medium"
+  }
+}
