@@ -1,0 +1,99 @@
+{
+  "test_name": "Adding a New Connector",
+  "description": "This scenario tests the multi-step workflow for adding a new connector using the 'Add Connector' button and validating its presence in the connector list. It ensures data validation, API integration, and state persistence.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify the 'Add Connector' button is visible and enabled.",
+    "3. Click on the 'Add Connector' button.",
+    "4. Fill out the connector creation form with valid data.",
+    "5. Submit the form.",
+    "6. Wait for the page to reload or for a success message to appear.",
+    "7. Verify that the newly added connector appears in the connector list.",
+    "8. Use the search functionality to filter the connector list by the newly added connector's name.",
+    "9. Verify that the search results display the newly added connector.",
+    "10. Reload the page and verify that the connector entry persists in the list."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-connector-button']",
+      "text": "Add Connector",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "add-connector-button"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "New Connector Name",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "Connector-search-box"
+    }
+  ],
+  "expected_results": [
+    "The 'Add Connector' button is clickable.",
+    "The connector creation form is submitted successfully.",
+    "The newly added connector appears in the connector list.",
+    "The search functionality filters the list correctly.",
+    "The connector entry persists after a page reload."
+  ],
+  "edge_cases": [
+    "Submit the form without filling in required fields.",
+    "Use invalid data formats for fields (e.g., special characters, overly long strings).",
+    "Attempt to add a duplicate connector name.",
+    "Disconnect from the network before submitting the form.",
+    "Check if error messages are displayed for invalid inputs."
+  ],
+  "data_requirements": [
+    "Valid connector name: 'New Connector Name'",
+    "Invalid connector name: '#$InvalidName!'",
+    "Duplicate connector name: 'Existing Connector Name'",
+    "Long connector name: String with 256+ characters",
+    "Empty connector name"
+  ],
+  "dependencies": [
+    "User must be logged in to access the connectors page.",
+    "The backend API for adding connectors must be operational.",
+    "Valid user permissions to add connectors must be in place."
+  ],
+  "api_interactions": [
+    "POST /connectors (for adding a new connector)",
+    "GET /connectors (to verify the added connector in the list)"
+  ],
+  "performance_metrics": [
+    "Form submission response time should be under 3 seconds.",
+    "Connector list should update within 2 seconds after adding a connector."
+  ],
+  "accessibility_requirements": [
+    "Ensure the 'Add Connector' button is focusable using the keyboard.",
+    "Ensure form fields have proper labels and ARIA attributes.",
+    "Validate color contrast for success and error messages."
+  ],
+  "metadata": {
+    "uuid": "832fbba1-d168-4093-a7f4-4bfd31a9ac31",
+    "created_at": "2025-07-25T09:27:26.558765",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "complex-scenario",
+      "auto-generated",
+      "data-validation",
+      "api-integration",
+      "workflow",
+      "ui-test",
+      "accessibility",
+      "performance"
+    ],
+    "estimated_execution_time": 50,
+    "flakiness_potential": "medium"
+  }
+}

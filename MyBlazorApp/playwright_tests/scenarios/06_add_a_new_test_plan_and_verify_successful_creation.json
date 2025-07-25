@@ -1,0 +1,109 @@
+{
+  "test_name": "Add a New Test Plan and Verify Successful Creation",
+  "description": "This scenario tests the workflow of adding a new test plan using the 'Add Test Plan' button and verifying that the newly created test plan appears in the list.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the 'Add Test Plan' button.",
+    "3. Click on the 'Add Test Plan' button.",
+    "4. Verify that a modal or separate page opens for creating a test plan.",
+    "5. Input the test plan name (e.g., 'New Test Plan') into the appropriate field.",
+    "6. Select the AI model and any other required fields.",
+    "7. Choose the test type from the dropdown options (e.g., 'E2E', 'Unit').",
+    "8. Set the test plan's creation date (if applicable).",
+    "9. Click the 'Save' or 'Create' button to submit the new test plan.",
+    "10. Verify that a success message is displayed confirming the creation.",
+    "11. Redirect back to the Test Plans list page (if not automatically done).",
+    "12. Verify that the newly created test plan appears in the list.",
+    "13. Use the search bar to locate the new test plan by its name.",
+    "14. Click on the test plan name to navigate to its details page.",
+    "15. Verify the details of the test plan, including name, type, creator, and timestamp."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-test-plan-btn']",
+      "text": "Add Test Plan",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "add-test-plan-btn"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='test-plan-name-input']",
+      "text": "Test Plan Name",
+      "action": "type",
+      "value": "New Test Plan",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "test-plan-name-input"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='save-test-plan-btn']",
+      "text": "Save",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "save-test-plan-btn"
+    }
+  ],
+  "expected_results": [
+    "A modal or new page for creating the test plan opens upon clicking 'Add Test Plan'.",
+    "A success message confirms the test plan's creation.",
+    "The new test plan is visible in the list and searchable by name.",
+    "Test plan details page displays correct information."
+  ],
+  "edge_cases": [
+    "Submit the form with missing required fields and verify error messages.",
+    "Enter a duplicate test plan name and verify error handling.",
+    "Input invalid characters in the test plan name field and ensure validation.",
+    "Test creating a test plan without selecting a test type and verify proper handling.",
+    "Close the modal without saving and check that no test plan is created."
+  ],
+  "data_requirements": [
+    {
+      "test_plan_name": "New Test Plan",
+      "test_type": "E2E",
+      "ai_model": "OpenAI GPT-4",
+      "timestamp": "2023-10-01T12:00:00Z"
+    }
+  ],
+  "dependencies": [
+    "The 'Add Test Plan' button must be functional and visible on the page.",
+    "Modal or creation page must correctly load required fields.",
+    "Back-end API for saving test plans must be functional."
+  ],
+  "api_interactions": [
+    "Save Test Plan API endpoint must be monitored to verify successful request and response."
+  ],
+  "performance_metrics": [
+    "Modal or creation page loads within 1 second after clicking 'Add Test Plan'.",
+    "Test Plan is added to the list within 2 seconds of clicking 'Save'."
+  ],
+  "accessibility_requirements": [
+    "Add Test Plan button must be accessible via keyboard navigation.",
+    "Form fields must have labels associated with them for screen-readers.",
+    "Error messages must be screen-reader friendly and meet WCAG color contrast requirements."
+  ],
+  "metadata": {
+    "uuid": "a90af56a-f7f7-42f0-ab93-5f65c6c378fe",
+    "created_at": "2025-07-25T09:27:26.566636",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "auto-generated",
+      "api-integration",
+      "workflow",
+      "ui-test",
+      "accessibility",
+      "performance"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "test_name": "Navigation Between Tabs (RoostGPT, Admin, Connectors)",
+  "description": "This scenario tests the navigation functionality of key tabs such as RoostGPT, Admin, and Connectors, verifying that each tab is accessible, clickable, and loads the correct content.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility and enablement of the 'RoostGPT' tab.",
+    "3. Click on the 'RoostGPT' tab and assert navigation to https://dev.roost.ai/roostgpt.",
+    "4. Verify that the content loaded corresponds to the RoostGPT functionality.",
+    "5. Return to the original page https://dev.roost.ai/roostgpt/tests.",
+    "6. Verify the visibility and enablement of the 'Admin' tab.",
+    "7. Click on the 'Admin' tab and assert navigation to https://dev.roost.ai/admin/app.",
+    "8. Verify that the content loaded corresponds to the Admin functionality.",
+    "9. Return to the original page https://dev.roost.ai/roostgpt/tests.",
+    "10. Verify the visibility and enablement of the 'Connectors' tab.",
+    "11. Click on the 'Connectors' tab and assert navigation to https://dev.roost.ai/connectors.",
+    "12. Verify that the content loaded corresponds to the Connectors functionality.",
+    "13. Use keyboard shortcuts to navigate between tabs.",
+    "14. Test cross-browser compatibility of tab navigation.",
+    "15. Test responsiveness by resizing the browser window and ensuring tabs remain clickable."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='roostGPT-tab']",
+      "text": "RoostGPT",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "roostGPT-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='admin-tab']",
+      "text": "Admin",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "admin-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='connectors-tab']",
+      "text": "Connectors",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "connectors-tab"
+    }
+  ],
+  "expected_results": [
+    "Navigation to 'RoostGPT' tab is successful.",
+    "Navigation to 'Admin' tab is successful.",
+    "Navigation to 'Connectors' tab is successful.",
+    "Correct content is loaded for each tab."
+  ],
+  "edge_cases": [
+    "Attempt to click on a tab when the page is partially loaded.",
+    "Navigate to a tab during slow network conditions.",
+    "Test tab visibility on very small screens.",
+    "Test navigating to a tab using keyboard shortcuts.",
+    "Simulate browser back button after navigating to a tab."
+  ],
+  "data_requirements": [
+    "valid_tab_names: ['RoostGPT', 'Admin', 'Connectors']"
+  ],
+  "dependencies": [
+    "All tabs must be enabled on the page.",
+    "Content for each tab must be preconfigured in the backend.",
+    "Navigation links must not be broken."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/api/tabContent",
+      "method": "GET",
+      "mock_response": {
+        "tab": "RoostGPT",
+        "content": "RoostGPT Content"
+      },
+      "error_handling": {
+        "404": "Tab content not found.",
+        "500": "Internal server error."
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Tab content must load within 1 second.",
+    "Tabs must remain clickable during content loading."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for keyboard navigation and tab focus states.",
+    "Ensure ARIA roles are defined for tabs."
+  ],
+  "metadata": {
+    "uuid": "b9ffbb24-ccb0-4ffd-8a83-89621371151e",
+    "created_at": "2025-07-25T09:27:26.554669",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "navigation",
+      "complex-scenario",
+      "keyboard-navigation",
+      "auto-generated",
+      "api-integration",
+      "accessibility",
+      "ui-test",
+      "performance"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}
