@@ -1,0 +1,100 @@
+{
+  "test_name": "Search Input Validation and Results Page Rendering",
+  "description": "This scenario tests the functionality of the search input field in the header, including validation of input data, redirection to the results page, and rendering of results based on search terms.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://docs.roost.ai/shelves/roost-admin-guide",
+    "https://docs.roost.ai/search"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/shelves/roost-admin-guide.",
+    "2. Verify visibility of the search input field and its placeholder text.",
+    "3. Type a valid search term (e.g., 'Admin Guide') into the search input field.",
+    "4. Click the 'Search' button.",
+    "5. Verify redirection to https://docs.roost.ai/search.",
+    "6. Assert the presence of search results matching the term 'Admin Guide'.",
+    "7. Validate that the search results include appropriate titles and descriptions.",
+    "8. Test search functionality with an invalid input (e.g., '%%%').",
+    "9. Verify that no results are displayed and an error message is shown.",
+    "10. Clear the search field and test submission of an empty search term.",
+    "11. Validate that the system does not break and provides meaningful feedback (e.g., 'No search term entered').",
+    "12. Perform additional search with different valid terms and verify results."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[id='header-search-box-input']",
+      "text": "Search",
+      "action": "type",
+      "url_on_page": "https://docs.roost.ai/shelves/roost-admin-guide",
+      "value": "Admin Guide"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[id='header-search-box-button']",
+      "text": "Search",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/shelves/roost-admin-guide"
+    }
+  ],
+  "expected_results": [
+    "Valid search term redirects to the results page and displays matching results.",
+    "Invalid search term returns no results and displays an error message.",
+    "Empty search term is handled gracefully and provides user feedback.",
+    "Search results include appropriate titles and descriptions."
+  ],
+  "edge_cases": [
+    "Submitting a search term with special characters (e.g., '!@#$').",
+    "Searching with terms exceeding the maximum length allowed.",
+    "Performing a search under high network latency conditions.",
+    "Submitting multiple rapid searches and verifying system response.",
+    "Typing rapidly and pressing 'Enter' instead of the 'Search' button."
+  ],
+  "data_requirements": [
+    "Valid search term: 'Admin Guide'",
+    "Invalid search term: '%%%@@##'",
+    "Empty search term",
+    "Search term with special characters: '!@#$%^'"
+  ],
+  "dependencies": [
+    "Search functionality must be enabled.",
+    "Search results data must exist for valid terms.",
+    "Error message handling must be configured for invalid search terms."
+  ],
+  "api_interactions": [
+    "POST /search",
+    "GET /search?term=<search_term>"
+  ],
+  "performance_metrics": [
+    "Search input responsiveness upon typing",
+    "Time taken to redirect to the results page",
+    "Load time of the search results page"
+  ],
+  "accessibility_requirements": [
+    "Ensure input has accessible labels via 'aria-label'.",
+    "Validate keyboard and screen reader accessibility for the input and button.",
+    "Test placeholder text contrast ratio."
+  ],
+  "metadata": {
+    "uuid": "a34751d5-fd51-4be0-86cc-f1f0b78d112d",
+    "created_at": "2025-07-25T08:55:14.667437",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "ui-test",
+      "data_validation",
+      "performance",
+      "form-submission",
+      "api-integration",
+      "data-validation",
+      "network-resilience",
+      "accessibility",
+      "complex-scenario"
+    ],
+    "estimated_execution_time": 60,
+    "flakiness_potential": "medium"
+  }
+}

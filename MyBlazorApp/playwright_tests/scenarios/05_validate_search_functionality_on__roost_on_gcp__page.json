@@ -1,0 +1,104 @@
+{
+  "test_name": "Validate Search Functionality on 'Roost on GCP' Page",
+  "description": "This scenario tests the search functionality provided on the 'Roost on GCP' page, ensuring it accurately filters content within the book and provides relevant results.",
+  "type": "data_validation",
+  "pages": [
+    "https://docs.roost.ai/books/roost-on-gcp"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/books/roost-on-gcp.",
+    "2. Verify that the search input field is visible and enabled.",
+    "3. Enter a valid search term (e.g., 'testing') into the search field.",
+    "4. Click the search button adjacent to the input field.",
+    "5. Verify that the page reloads or dynamically updates to show filtered results.",
+    "6. Capture the displayed results and validate they match the search term.",
+    "7. Perform another search using a partial match term (e.g., 'test').",
+    "8. Verify that the results are updated accordingly.",
+    "9. Enter an invalid search term (e.g., 'xyz123') and perform a search.",
+    "10. Verify that a 'No results found' message or equivalent feedback is displayed.",
+    "11. Clear the search input field and perform a search.",
+    "12. Verify that all content is displayed again as the search filter is removed.",
+    "13. Repeat the search process in a different browser to validate cross-browser functionality.",
+    "14. Verify responsiveness by testing the search functionality on a mobile viewport.",
+    "15. Test accessibility features by interacting with the search field via keyboard navigation.",
+    "16. Perform the search operation with a network delay to test for graceful degradation."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[id='header-search-box-input']",
+      "text": "",
+      "action": "type",
+      "value": "testing",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    },
+    {
+      "element_type": "button",
+      "selector": "button[id='header-search-box-button']",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "Search results dynamically update based on the entered term.",
+    "Partial matches are included in the search results.",
+    "Invalid search terms result in a 'No results found' message.",
+    "Clearing the search field resets the page content to its original state.",
+    "Search functionality works consistently across browsers and mobile devices."
+  ],
+  "edge_cases": [
+    "Search term exceeds maximum character limit.",
+    "Search term contains only special characters.",
+    "Search term is an empty string.",
+    "Search field input contains non-English characters.",
+    "Simultaneous searches are performed in different tabs."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'testing'",
+    "partial_search_term: 'test'",
+    "invalid_search_term: 'xyz123'",
+    "special_character_search_term: '@#$%^&*'",
+    "non_english_search_term: '\u6d4b\u8bd5'"
+  ],
+  "dependencies": [
+    "Search index must be properly configured.",
+    "Search button must be functional.",
+    "No network issues during the test execution."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "GET /search?term={query}"
+  ],
+  "performance_metrics": [
+    "Search results load time (should be < 2 seconds).",
+    "Rendering efficiency during updates."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 Guideline 3.3.2: Labels or Instructions for the search field.",
+    "WCAG 2.1 Guideline 2.4.3: Focus Order when navigating search elements by keyboard.",
+    "WCAG 2.1 Guideline 1.4.10: Responsiveness for mobile viewport."
+  ],
+  "metadata": {
+    "uuid": "73228869-d53a-4aa3-a87d-2886aec562b6",
+    "created_at": "2025-07-25T08:55:14.669748",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "keyboard-navigation",
+      "ui-test",
+      "data_validation",
+      "performance",
+      "api-integration",
+      "responsive",
+      "accessibility",
+      "complex-scenario"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "test_name": "Test RoostGPT Configuration Workflow with OpenAI API Token",
+  "description": "This scenario validates the end-to-end process of configuring RoostGPT using an OpenAI API token, including form inputs, validations, and proper state persistence.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/gptCLIForm"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/gptCLIForm.",
+    "2. Verify the page title and visibility of the 'RoostGPT Config' link in the navigation bar.",
+    "3. Locate the input field with placeholder 'roostGpt_test' and type the configuration name 'MyTestConfig'.",
+    "4. Locate the input field with placeholder 'https://api.openai.com/v1/' and type 'https://api.openai.com/v1/my-endpoint'.",
+    "5. Locate the password input field with placeholder 'Enter the Access Token' and type 'secure-token-123'.",
+    "6. Click on the 'Show/Hide' button beside the password input to toggle its visibility.",
+    "7. Ensure the password is displayed in plain text and then toggle it back to hidden.",
+    "8. Verify the link to OpenAI API keys ('https://platform.openai.com/account/api-keys') is clickable and opens in a new tab.",
+    "9. Submit the form and wait for a confirmation message indicating successful configuration.",
+    "10. Reload the page and ensure the previously entered configuration data is retained.",
+    "11. Test for persistence by navigating away from the page and then returning to verify the data is still populated.",
+    "12. Verify the radio button with data-testid 'cloud-git-type-radio-button-selected' is selected by default.",
+    "13. Test switching between the 'cloud' and 'server' radio buttons and ensure proper state change.",
+    "14. Locate the checkbox labeled 'Traverse to all sub-directories' and toggle its value.",
+    "15. Verify that the 'Check for Vulnerability' checkbox can be toggled on and off.",
+    "16. Enter invalid data in the OpenAI API token field (e.g., 'invalid-token') and submit to verify error handling.",
+    "17. Test accessibility by navigating through the form fields using only the keyboard (tab key).",
+    "18. Simulate a network failure during form submission and verify that a proper error message is displayed.",
+    "19. Test form reset functionality by clearing all the fields and verifying default values are restored.",
+    "20. Verify the footer links ('About Roost', 'Privacy Policy', 'Documentation') navigate to the correct URLs."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[placeholder='roostGpt_test']",
+      "text": "",
+      "action": "type",
+      "value": "MyTestConfig",
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": "test-name-input"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[placeholder='https://api.openai.com/v1/']",
+      "text": "",
+      "action": "type",
+      "value": "https://api.openai.com/v1/my-endpoint",
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": "openai-token"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[placeholder='Enter the Access Token']",
+      "text": "",
+      "action": "type",
+      "value": "secure-token-123",
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": "openai-token"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='openai-token-unMask-icon']",
+      "text": "",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": "openai-token-unMask-icon"
+    },
+    {
+      "element_type": "a",
+      "selector": "a[href='https://platform.openai.com/account/api-keys']",
+      "text": "",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": null
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='cloud-git-type-radio-button-selected']",
+      "text": "",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": "cloud-git-type-radio-button-selected"
+    },
+    {
+      "element_type": "label",
+      "selector": "label:contains('Traverse to all sub-directories')",
+      "text": "Traverse to all sub-directories",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": null
+    },
+    {
+      "element_type": "label",
+      "selector": "label:contains('Check for Vulnerability')",
+      "text": "Check for Vulnerability",
+      "action": "click",
+      "value": null,
+      "url_on_page": "https://dev.roost.ai/gptCLIForm",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "Form fields accept valid input and persist data after submission.",
+    "Error messages are displayed for invalid inputs (e.g., incorrect OpenAI token).",
+    "All footer links navigate to their respective pages correctly.",
+    "Toggling the password field works as expected (show/hide).",
+    "Checkboxes and radio buttons retain their state after interactions."
+  ],
+  "edge_cases": [
+    "Submit the form without filling any fields and check for validation errors.",
+    "Enter a valid URL in the OpenAI API field but leave the token field empty.",
+    "Toggle the password visibility multiple times rapidly and check for UI issues.",
+    "Submit the form with an invalid OpenAI token and verify the error response.",
+    "Simulate session timeout and ensure the user is prompted to log in again."
+  ],
+  "data_requirements": [
+    "Valid OpenAI API Token: 'secure-token-123'",
+    "Invalid OpenAI API Token: 'invalid-token'",
+    "Valid Configuration Name: 'MyTestConfig'",
+    "Empty Configuration Name: ''",
+    "Valid URL: 'https://api.openai.com/v1/my-endpoint'"
+  ],
+  "dependencies": [
+    "User must be logged in to access the 'https://dev.roost.ai/gptCLIForm' page.",
+    "OpenAI API credentials must be available for testing.",
+    "Backend APIs must be operational for form submission."
+  ],
+  "api_interactions": [
+    "POST /api/configure-gpt with OpenAI token and configuration name.",
+    "GET /api/configure-gpt to prepopulate form data on page load."
+  ],
+  "performance_metrics": [
+    "Form submission response time under 2 seconds.",
+    "Page load time under 3 seconds."
+  ],
+  "accessibility_requirements": [
+    "Ensure all form fields have associated labels (WCAG 2.1 Success Criterion 1.3.1).",
+    "Verify keyboard navigation (WCAG 2.1 Success Criterion 2.1.1).",
+    "Check color contrast ratios for text and background (WCAG 2.1 Success Criterion 1.4.3)."
+  ],
+  "metadata": {
+    "uuid": "9ca02a63-a2c9-4366-921d-a2d06fa8b360",
+    "created_at": "2025-07-25T08:55:14.679543",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "keyboard-navigation",
+      "ui-test",
+      "performance",
+      "form-submission",
+      "api-integration",
+      "data-validation",
+      "network-resilience",
+      "accessibility",
+      "complex-scenario",
+      "workflow"
+    ],
+    "estimated_execution_time": 100,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "test_name": "File Export Validation for 'Roost on GCP' Page",
+  "description": "This test scenario validates the file export functionality on the 'Roost on GCP' page. It ensures exported files are correctly generated and accessible in the specified formats (HTML, PDF, Plain Text, Markdown).",
+  "type": "workflow",
+  "pages": [
+    "https://docs.roost.ai/books/roost-on-gcp"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/books/roost-on-gcp.",
+    "2. Verify the visibility and functionality of export options (HTML, PDF, Plain Text, Markdown).",
+    "3. Click the HTML export link.",
+    "4. Wait for the file to download and verify its content.",
+    "5. Repeat the process for the PDF export link.",
+    "6. Open the PDF file and ensure it displays correctly in a PDF viewer.",
+    "7. Click the Plain Text export link.",
+    "8. Verify that the downloaded file contains text data with appropriate formatting.",
+    "9. Click the Markdown export link.",
+    "10. Open the file and ensure it adheres to proper Markdown syntax.",
+    "11. Test file export links in a different browser.",
+    "12. Verify that file export formats are consistent across browsers.",
+    "13. Simulate a network failure during the download process.",
+    "14. Verify that an appropriate error message or retry mechanism is displayed.",
+    "15. Test file export functionality on mobile devices to ensure responsiveness."
+  ],
+  "selectors": [
+    {
+      "element_type": "a",
+      "selector": "a[href*='export/html']",
+      "text": "Contained Web File.html",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    },
+    {
+      "element_type": "a",
+      "selector": "a[href*='export/pdf']",
+      "text": "PDF File.pdf",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    },
+    {
+      "element_type": "a",
+      "selector": "a[href*='export/plaintext']",
+      "text": "Plain Text File.txt",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    },
+    {
+      "element_type": "a",
+      "selector": "a[href*='export/markdown']",
+      "text": "Markdown File.md",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/books/roost-on-gcp",
+      "datatest-id": null
+    }
+  ],
+  "expected_results": [
+    "Files are successfully downloaded in the selected format.",
+    "HTML file renders correctly in a browser.",
+    "PDF file opens and displays correctly in a PDF viewer.",
+    "Plain Text file contains properly formatted text.",
+    "Markdown file adheres to Markdown syntax standards."
+  ],
+  "edge_cases": [
+    "Export file link is broken or unavailable.",
+    "Downloaded file is corrupted or incomplete.",
+    "Network failure during file export process.",
+    "File export functionality is tested with insufficient storage on the device.",
+    "File names contain invalid characters or exceed the file system's limit."
+  ],
+  "data_requirements": [
+    "valid_html_export_link: 'https://docs.roost.ai/books/roost-on-gcp/export/html'",
+    "valid_pdf_export_link: 'https://docs.roost.ai/books/roost-on-gcp/export/pdf'",
+    "valid_plaintext_export_link: 'https://docs.roost.ai/books/roost-on-gcp/export/plaintext'",
+    "valid_markdown_export_link: 'https://docs.roost.ai/books/roost-on-gcp/export/markdown'"
+  ],
+  "dependencies": [
+    "File export links must be functional.",
+    "Sufficient storage space must be available on the testing device.",
+    "No network issues during the test execution."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "GET /books/roost-on-gcp/export/{format}"
+  ],
+  "performance_metrics": [
+    "File download time (should be < 5 seconds).",
+    "Rendering speed of exported files."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 Guideline 1.4.10: Responsiveness for mobile viewport.",
+    "WCAG 2.1 Guideline 2.4.4: Link purpose (ensure export links are accessible and descriptive)."
+  ],
+  "metadata": {
+    "uuid": "2b247299-0501-44f7-b9f4-f8336ce8336a",
+    "created_at": "2025-07-25T08:55:14.672423",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "file-upload",
+      "ui-test",
+      "performance",
+      "form-submission",
+      "api-integration",
+      "accessibility",
+      "complex-scenario",
+      "file-download",
+      "workflow"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

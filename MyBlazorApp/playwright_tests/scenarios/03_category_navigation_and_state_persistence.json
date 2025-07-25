@@ -1,0 +1,98 @@
+{
+  "test_name": "Category Navigation and State Persistence",
+  "description": "This scenario tests navigation between categories, persistence of selection state, and verification of the resulting page content based on the selected category.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://docs.roost.ai/shelves/roost-admin-guide",
+    "https://docs.roost.ai/search?term=%5BCategory%5D",
+    "https://docs.roost.ai/search?term=%5BCategory%3DAdmin+Guide%5D"
+  ],
+  "steps": [
+    "1. Navigate to https://docs.roost.ai/shelves/roost-admin-guide.",
+    "2. Verify the visibility of 'Category' link and assert its text content.",
+    "3. Click on the 'Category' link.",
+    "4. Verify that the page is redirected to https://docs.roost.ai/search?term=%5BCategory%5D.",
+    "5. Assert the presence of 'Admin Guide' link on the category page.",
+    "6. Click on the 'Admin Guide' link.",
+    "7. Verify that the page is redirected to https://docs.roost.ai/search?term=%5BCategory%3DAdmin+Guide%5D.",
+    "8. Assert that the content of the 'Admin Guide' page is correctly displayed.",
+    "9. Verify that the breadcrumb or navigation menu reflects the correct navigation path.",
+    "10. Refresh the 'Admin Guide' page and ensure that the content remains persistent.",
+    "11. Navigate back to https://docs.roost.ai/shelves/roost-admin-guide and assert visibility of the previously clicked links.",
+    "12. Validate that no additional state changes occurred unexpectedly."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='https://docs.roost.ai/search?term=%5BCategory%5D']",
+      "text": "Category",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/shelves/roost-admin-guide"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='https://docs.roost.ai/search?term=%5BCategory%3DAdmin+Guide%5D']",
+      "text": "Admin Guide",
+      "action": "click",
+      "url_on_page": "https://docs.roost.ai/search?term=%5BCategory%5D"
+    }
+  ],
+  "expected_results": [
+    "The 'Category' link navigates to the correct category page.",
+    "The 'Admin Guide' link navigates to the correct admin guide page.",
+    "Content on the 'Admin Guide' page is correctly displayed.",
+    "Breadcrumb reflects the correct navigation path.",
+    "Refreshing the 'Admin Guide' page retains the state of the content."
+  ],
+  "edge_cases": [
+    "Clicking on a category link that redirects to a non-existent page.",
+    "Refreshing the page midway during navigation.",
+    "Testing navigation with different browsers and ensuring consistent behavior.",
+    "Navigating back to the previous page and verifying state reset.",
+    "Testing navigation links with disabled state."
+  ],
+  "data_requirements": [
+    "Valid category name: 'Admin Guide'",
+    "Invalid category name: 'NonExistentCategory'",
+    "Empty category name",
+    "Category name with special characters: 'Admin%Guide'"
+  ],
+  "dependencies": [
+    "Category data must exist in the system.",
+    "Links must be correctly configured to point to valid routes.",
+    "Admin Guide content must be pre-loaded for the test."
+  ],
+  "api_interactions": [
+    "GET /search?term=%5BCategory%5D",
+    "GET /search?term=%5BCategory%3DAdmin+Guide%5D"
+  ],
+  "performance_metrics": [
+    "Page load time for the 'Category' page",
+    "Page load time for the 'Admin Guide' page",
+    "Rendering efficiency of category links"
+  ],
+  "accessibility_requirements": [
+    "Verify that links have accessible names using aria-labels.",
+    "Test keyboard navigation (tabbing) to access links.",
+    "Ensure contrast ratios for links meet WCAG standards."
+  ],
+  "metadata": {
+    "uuid": "f492c8b2-f353-43f2-a4b8-c8783210769f",
+    "created_at": "2025-07-25T08:55:14.664888",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "api-integration",
+      "accessibility",
+      "complex-scenario",
+      "workflow"
+    ],
+    "estimated_execution_time": 60,
+    "flakiness_potential": "medium"
+  }
+}
