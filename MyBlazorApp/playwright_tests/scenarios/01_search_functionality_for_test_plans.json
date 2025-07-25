@@ -1,0 +1,100 @@
+{
+  "test_name": "Search Functionality for Test Plans",
+  "description": "This scenario tests the search functionality for test plans on the page. It ensures that valid searches return correct results, invalid inputs are handled properly, and the UI responds as expected.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Test Plans'.",
+    "3. Type a valid search term (e.g., 'Unit Test') into the search field.",
+    "4. Verify that the search results dynamically update to display matching test plans.",
+    "5. Clear the search field and type a partial search term (e.g., 'Unit').",
+    "6. Verify that the search results display partial matches.",
+    "7. Enter an invalid or non-existent search term (e.g., 'InvalidPlan123').",
+    "8. Verify that the UI displays a 'No results found' message or equivalent.",
+    "9. Test searching using a special character (e.g., '@#$$').",
+    "10. Verify the system's response to invalid characters and ensure UI does not break.",
+    "11. Test search functionality with a large input string (e.g., 255 characters).",
+    "12. Verify the system handles this input gracefully without crashing.",
+    "13. Perform a search and then refresh the page.",
+    "14. Verify that the search state is cleared on refresh.",
+    "15. Test search with leading and trailing whitespace (e.g., '   Test Plan   ').",
+    "16. Verify that the system trims whitespace and returns the appropriate results.",
+    "17. Test concurrent searches from two browser tabs using the same user account.",
+    "18. Verify that both sessions work independently and do not conflict.",
+    "19. Repeat steps with different test plans to validate consistency."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "",
+      "action": "type",
+      "value": "",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search results update dynamically based on input.",
+    "Invalid or non-existent search terms display a 'No results found' message.",
+    "The system gracefully handles large inputs and invalid characters.",
+    "Search state is cleared upon page refresh.",
+    "Whitespace in the search term is trimmed before processing."
+  ],
+  "edge_cases": [
+    "Search with special characters.",
+    "Search with extremely long input strings.",
+    "Search with leading and trailing whitespace.",
+    "Search for a non-existent test plan.",
+    "Perform searches concurrently in multiple tabs."
+  ],
+  "data_requirements": [
+    "valid_search_term: 'Unit Test'",
+    "partial_search_term: 'Unit'",
+    "invalid_search_term: 'InvalidPlan123'",
+    "special_character_search: '@#$$'",
+    "long_search_term: 255 characters string"
+  ],
+  "dependencies": [
+    "Test plans must exist in the system.",
+    "The search input field must be functional.",
+    "Search backend API must be available."
+  ],
+  "api_interactions": [
+    "/search/test-plans"
+  ],
+  "performance_metrics": [
+    "Search results load time (should be < 1 second).",
+    "UI responsiveness during typing."
+  ],
+  "accessibility_requirements": [
+    "Input field should have appropriate labels or aria attributes.",
+    "Search results should be navigable via keyboard.",
+    "Screen reader compatibility for 'No results found' message."
+  ],
+  "metadata": {
+    "uuid": "38b16f16-74f5-4371-be87-0942d25336cb",
+    "created_at": "2025-07-25T10:10:58.292606",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "form-submission",
+      "auto-generated",
+      "data_validation",
+      "api-integration",
+      "error-handling",
+      "ui-test",
+      "performance",
+      "concurrency"
+    ],
+    "estimated_execution_time": 95,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "test_name": "Pagination Functionality Test",
+  "description": "This scenario tests the pagination controls (First, Last, Previous, Next, and numbered pages) to ensure users can navigate through the connectors list effectively.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify the visibility of the pagination controls.",
+    "3. Click the 'Next' button.",
+    "4. Verify the next page of results is displayed.",
+    "5. Click the 'Previous' button.",
+    "6. Verify the previous page of results is displayed.",
+    "7. Click the 'First' button.",
+    "8. Verify the first page of results is displayed.",
+    "9. Click the 'Last' button.",
+    "10. Verify the last page of results is displayed.",
+    "11. Click on a specific page number (e.g., 3).",
+    "12. Verify the corresponding page of results is displayed.",
+    "13. Reload the page and verify the default page (1) is displayed.",
+    "14. Perform a search and verify pagination updates accordingly.",
+    "15. Navigate through pages after performing a search."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-icon']",
+      "text": "\u00bb",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-left']",
+      "text": "\u00ab",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-first-page-button']",
+      "text": "First",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-last-page-button']",
+      "text": "Last",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    },
+    {
+      "element_type": "button",
+      "selector": "button.page-link:nth-child(3)",
+      "text": "3",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    }
+  ],
+  "expected_results": [
+    "Pagination updates correctly when navigating between pages.",
+    "The correct set of connectors is displayed for each page.",
+    "State resets to page 1 after a page reload.",
+    "Pagination updates correctly after performing a search."
+  ],
+  "edge_cases": [
+    "Attempt to navigate to a page number that does not exist.",
+    "Click on 'Next' when already on the last page.",
+    "Click on 'Previous' when already on the first page.",
+    "Rapidly click pagination buttons and verify no overlapping requests.",
+    "Ensure pagination works correctly when the list has fewer than one page of results."
+  ],
+  "data_requirements": [
+    "minimum_connectors: 1",
+    "maximum_connectors_per_page: 10",
+    "total_connectors: 50",
+    "search_query: 'connector'"
+  ],
+  "dependencies": [
+    "Connectors list must contain multiple pages of data.",
+    "Pagination controls must be visible on the page.",
+    "Search functionality must be operational."
+  ],
+  "api_interactions": [
+    "GET /api/connectors?page=1",
+    "GET /api/connectors?page=2",
+    "GET /api/connectors?page=last"
+  ],
+  "performance_metrics": [
+    "Pagination response time.",
+    "API response time for fetching paginated data."
+  ],
+  "accessibility_requirements": [
+    "Ensure keyboard navigation through pagination buttons.",
+    "Verify aria labels for pagination controls.",
+    "Test color contrast of active and inactive page buttons."
+  ],
+  "metadata": {
+    "uuid": "66a727f5-2f4e-4555-a155-4b4c3a752c72",
+    "created_at": "2025-07-25T10:10:58.316814",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "auto-generated",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "navigation"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "test_name": "Add New Test Plan and Verify State Persistence",
+  "description": "Tests the ability to create a new test plan using the 'Add Test Plan' button, verify its creation, and ensure state persistence after a page reload.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify that the 'Add Test Plan' button is visible and enabled.",
+    "3. Click the 'Add Test Plan' button.",
+    "4. Verify that a modal or form to create a test plan appears.",
+    "5. Fill out the required fields in the form with valid data.",
+    "6. Click the 'Save' or 'Submit' button to add the test plan.",
+    "7. Verify that the new test plan appears in the list of test plans.",
+    "8. Reload the page.",
+    "9. Verify that the newly added test plan is still visible in the list.",
+    "10. Use the search box to search for the newly added test plan by name.",
+    "11. Verify that the search results include the newly added test plan.",
+    "12. Clear the search input.",
+    "13. Navigate to another page using the 'Analysis' link.",
+    "14. Return to the Test Plans page.",
+    "15. Verify that the newly added test plan is still visible.",
+    "16. Attempt to edit the test plan and save the changes.",
+    "17. Verify that the changes are reflected in the test plan list.",
+    "18. Delete the test plan and verify it no longer appears in the list."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='add-test-plan-button']",
+      "text": "Add Test Plan",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='save-test-plan-button']",
+      "text": "Save",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    }
+  ],
+  "expected_results": [
+    "The 'Add Test Plan' button is visible and clickable.",
+    "The test plan creation modal or form is displayed upon clicking the button.",
+    "The new test plan is added and is visible in the test plan list.",
+    "The new test plan persists after refreshing the page.",
+    "Search results show the newly added test plan when searched by name.",
+    "The test plan can be successfully edited, and changes are reflected.",
+    "The test plan is successfully deleted and no longer appears in the list."
+  ],
+  "edge_cases": [
+    "Click 'Add Test Plan' without filling in required fields and verify validation errors.",
+    "Attempt to create a test plan with duplicate names and verify error handling.",
+    "Reload the page during test plan creation and ensure no partial entries are saved.",
+    "Search with invalid or non-existent test plan names and verify empty results.",
+    "Delete a test plan and attempt to search for it to ensure it is removed."
+  ],
+  "data_requirements": [
+    "valid_test_plan_name: 'Test Plan A'",
+    "duplicate_test_plan_name: 'Test Plan A'",
+    "invalid_test_plan_name: '' (empty string)",
+    "special_character_test_plan_name: '@TestPlan!'",
+    "long_test_plan_name: 'A' * 256 (256 characters)"
+  ],
+  "dependencies": [
+    "User must be logged in and have access to the Test Plans page.",
+    "The 'Add Test Plan' functionality must be enabled.",
+    "The backend API for creating test plans must be operational."
+  ],
+  "api_interactions": [
+    "POST /api/test-plans (for creating test plans)",
+    "GET /api/test-plans (for fetching test plan list)",
+    "DELETE /api/test-plans/{id} (for deleting a test plan)"
+  ],
+  "performance_metrics": [
+    "Time taken to render the test plan list after adding a new test plan.",
+    "Time taken for the search results to appear after submitting a query."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance for form fields and buttons.",
+    "Aria-labels for input fields and buttons.",
+    "Keyboard accessibility for navigating and interacting with test plan creation."
+  ],
+  "metadata": {
+    "uuid": "0e6e5099-a33b-4e27-a687-b4aa31e87ff6",
+    "created_at": "2025-07-25T10:10:58.306959",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "accessibility",
+      "auto-generated",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "workflow"
+    ],
+    "estimated_execution_time": 90,
+    "flakiness_potential": "medium"
+  }
+}

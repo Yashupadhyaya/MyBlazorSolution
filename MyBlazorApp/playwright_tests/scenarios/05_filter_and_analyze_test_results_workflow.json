@@ -1,0 +1,134 @@
+{
+  "test_name": "Filter and Analyze Test Results Workflow",
+  "description": "Tests the filtering functionality on the test results table, ensuring filters like 'In-Queue', 'In-Progress', and 'Completed' work correctly and update the displayed data.",
+  "type": "workflow",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/analyses"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/analyses.",
+    "2. Verify the visibility of the test results table.",
+    "3. Identify and click the dropdown filter for status.",
+    "4. Select 'In-Queue' from the dropdown.",
+    "5. Assert that only rows with status 'In-Queue' are displayed.",
+    "6. Clear the filter and verify that all rows are displayed again.",
+    "7. Repeat the filter process for 'In-Progress' and 'Completed'.",
+    "8. Use the search box to type a keyword relevant to a test name (e.g., 'Login Test').",
+    "9. Verify that only rows matching the search term are displayed.",
+    "10. Clear the search box and verify the table resets.",
+    "11. Click the 'Show My Activities' toggle and verify that only activities associated with the logged-in user are displayed.",
+    "12. Toggle back to 'Show All Activities' and verify visibility of all entries.",
+    "13. Enable the auto-refresh toggle.",
+    "14. Wait for 45 seconds and verify that the table refreshes automatically.",
+    "15. Assert that the filters and search parameters persist after the refresh.",
+    "16. Interact with the column headers (e.g., 'Test Name') to sort the table.",
+    "17. Verify that sorting works correctly in ascending and descending order.",
+    "18. Reload the page and assert that filters, sorting, or search parameters persist if supported."
+  ],
+  "selectors": [
+    {
+      "element_type": "dropdown",
+      "selector": "select[data-testid='status-filter']",
+      "text": "",
+      "action": "select",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "status-filter"
+    },
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": "",
+      "action": "type",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "events-search-box",
+      "value": "Login Test"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='toggle-my-activities']",
+      "text": "Show My Activities",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "toggle-my-activities"
+    },
+    {
+      "element_type": "toggle",
+      "selector": "button[data-testid='auto-refresh-toggle']",
+      "text": "",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "auto-refresh-toggle"
+    },
+    {
+      "element_type": "table",
+      "selector": "table[data-testid='results-table']",
+      "text": "",
+      "action": "assert_visibility",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "results-table"
+    }
+  ],
+  "expected_results": [
+    "Table displays only rows with status 'In-Queue' after filter selection.",
+    "Search results correctly display rows matching the keyword.",
+    "Auto-refresh updates table data after 45-second interval.",
+    "Sorting by column headers works correctly in ascending and descending order.",
+    "Filters, search, and sorting parameters persist after page reload."
+  ],
+  "edge_cases": [
+    "Attempt to apply multiple filters simultaneously.",
+    "Test with an invalid keyword in the search box.",
+    "Test auto-refresh with a slow network connection.",
+    "Attempt to sort a column with identical values.",
+    "Verify behavior when no rows match the filter criteria."
+  ],
+  "data_requirements": [
+    "Various test statuses ('In-Queue', 'In-Progress', 'Completed').",
+    "At least one test with the name 'Login Test'.",
+    "User-specific activities for 'Show My Activities' toggle.",
+    "Test data to verify sorting functionality (e.g., dates, test names).",
+    "Keyword for search functionality."
+  ],
+  "dependencies": [
+    "Test data must be populated in the table.",
+    "User must be logged in to access the page.",
+    "Backend must support filtering, sorting, and search functionalities."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "GET /analyses/status",
+    "POST /analyses/search",
+    "GET /analyses/refresh"
+  ],
+  "performance_metrics": [
+    "Auto-refresh interval efficiency.",
+    "Table rendering speed after filter or search.",
+    "Response latency for search and filtering operations."
+  ],
+  "accessibility_requirements": [
+    "All dropdowns have appropriate ARIA roles.",
+    "Filters and toggles are accessible via keyboard navigation.",
+    "Search box is labeled and accessible for screen readers."
+  ],
+  "metadata": {
+    "uuid": "17d82e24-f056-41da-8111-c9b2b3cf4929",
+    "created_at": "2025-07-25T10:10:58.302520",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "network-resilience",
+      "accessibility",
+      "auto-generated",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "workflow",
+      "concurrency",
+      "data-validation"
+    ],
+    "estimated_execution_time": 90,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "test_name": "Admin Dashboard Navigation and State Persistence",
+  "description": "This test validates the navigation and state persistence across the Admin, RoostGPT, and Connectors tabs on the admin dashboard. It ensures that UI elements are interactive, state is properly maintained, and navigation works seamlessly.",
+  "type": "workflow",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/admin/app",
+    "https://dev.roost.ai/roostgpt",
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/admin/app.",
+    "2. Verify the visibility of the Admin tab (data-testid='admin-tab') and ensure it is marked as active.",
+    "3. Click the RoostGPT tab (data-testid='roostGPT-tab').",
+    "4. Verify that the page navigates to https://dev.roost.ai/roostgpt.",
+    "5. Interact with any visible UI elements on the RoostGPT page to confirm proper loading.",
+    "6. Return to the Admin tab by clicking on it.",
+    "7. Verify that the page navigates back to https://dev.roost.ai/admin/app and the state is preserved.",
+    "8. Click the Connectors tab (data-testid='connectors-tab').",
+    "9. Verify that the page navigates to https://dev.roost.ai/connectors.",
+    "10. Return to the Admin tab by clicking on it again.",
+    "11. Reload the page and verify that the Admin tab remains active.",
+    "12. Verify that all key UI elements, such as the Admin tab and navigation features, remain functional after reload."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='admin-tab']",
+      "text": "Admin",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/admin/app"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='roostGPT-tab']",
+      "text": "RoostGPT",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='connectors-tab']",
+      "text": "Connectors",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    }
+  ],
+  "expected_results": [
+    "Navigation to each tab occurs without errors.",
+    "The Admin tab remains active when on the https://dev.roost.ai/admin/app page.",
+    "State persists across navigation and reloads."
+  ],
+  "edge_cases": [
+    "Attempt navigation without proper permissions (role-based access testing).",
+    "Refresh the page during navigation and verify no UI inconsistencies.",
+    "Click a disabled or non-functional tab and ensure proper error handling.",
+    "Verify behavior when one of the navigation links is broken or missing.",
+    "Test navigation under high network latency."
+  ],
+  "data_requirements": [
+    "Valid admin user with access to all tabs.",
+    "Different user roles to verify restricted access to tabs.",
+    "Simulated network conditions for latency testing."
+  ],
+  "dependencies": [
+    "Admin user must be logged in.",
+    "All navigation links must be functional.",
+    "Access controls must be properly configured."
+  ],
+  "api_interactions": [
+    "Monitor navigation API requests for proper status codes (200).",
+    "Mock API responses for broken links (404)."
+  ],
+  "performance_metrics": [
+    "Measure page load times (<2 seconds).",
+    "Ensure navigation between tabs occurs within 1 second."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 Level AA compliance for focus indicators.",
+    "Verify keyboard navigation across tabs."
+  ],
+  "metadata": {
+    "uuid": "69cf2a47-52e7-418f-b401-88bbe2b43ca1",
+    "created_at": "2025-07-25T10:10:58.297298",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "network-resilience",
+      "complex-scenario",
+      "accessibility",
+      "auto-generated",
+      "api-integration",
+      "ui-test",
+      "performance",
+      "workflow"
+    ],
+    "estimated_execution_time": 60,
+    "flakiness_potential": "medium"
+  }
+}

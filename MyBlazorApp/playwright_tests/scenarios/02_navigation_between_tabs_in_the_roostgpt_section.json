@@ -1,0 +1,108 @@
+{
+  "test_name": "Navigation Between Tabs in the RoostGPT Section",
+  "description": "This scenario tests the navigation between various tabs (Test Plans, Analysis, Generations) within the RoostGPT section. It ensures that each tab is accessible, functional, and displays the correct content.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests",
+    "https://dev.roost.ai/roostgpt/analyses",
+    "https://dev.roost.ai/roostgpt/events"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the 'Test Plans' tab, which should be active.",
+    "3. Click on the 'Analysis' tab.",
+    "4. Verify that the URL changes to https://dev.roost.ai/roostgpt/analyses and the content updates appropriately.",
+    "5. Click on the 'Generations' tab.",
+    "6. Verify that the URL changes to https://dev.roost.ai/roostgpt/events and the content updates appropriately.",
+    "7. Click back on the 'Test Plans' tab.",
+    "8. Verify that the URL changes back to https://dev.roost.ai/roostgpt/tests and previously loaded data persists.",
+    "9. Test navigation using browser forward and back buttons.",
+    "10. Verify that the appropriate tab is highlighted after navigation via browser controls.",
+    "11. Test rapid switching between tabs to ensure no performance degradation.",
+    "12. Test tab navigation using keyboard shortcuts (e.g., Tab key and Enter).",
+    "13. Verify that all tabs are accessible through keyboard navigation.",
+    "14. Test tab navigation on a mobile device by tapping.",
+    "15. Verify that tab switching is functional and content is responsive on mobile screens."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/tests']",
+      "text": "Test Plans",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/events']",
+      "text": "Generations",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    }
+  ],
+  "expected_results": [
+    "Each tab displays the correct content when selected.",
+    "The active tab is visually highlighted.",
+    "Navigation via browser back and forward buttons works as expected.",
+    "Performance is consistent during rapid tab switching.",
+    "Navigation is fully functional on both desktop and mobile."
+  ],
+  "edge_cases": [
+    "Attempt to navigate to a non-existent tab URL.",
+    "Switch tabs rapidly to test for performance issues.",
+    "Use keyboard navigation with disabled tabs (if applicable).",
+    "Simulate slow network conditions and test tab loading.",
+    "Test tab navigation on a very small viewport."
+  ],
+  "data_requirements": [
+    "Valid tab URLs: '/roostgpt/tests', '/roostgpt/analyses', '/roostgpt/events'",
+    "Content for each tab must be preloaded or dynamically loaded."
+  ],
+  "dependencies": [
+    "All tabs must be implemented and functional.",
+    "Backend APIs for each tab must be available.",
+    "The test environment must support both desktop and mobile devices."
+  ],
+  "api_interactions": [
+    "GET /roostgpt/tests",
+    "GET /roostgpt/analyses",
+    "GET /roostgpt/events"
+  ],
+  "performance_metrics": [
+    "Tab navigation latency (should be < 500ms).",
+    "Rendering performance during tab switching."
+  ],
+  "accessibility_requirements": [
+    "Each tab should have an aria-selected attribute.",
+    "Tabs should be navigable via keyboard.",
+    "Tab order should follow a logical sequence."
+  ],
+  "metadata": {
+    "uuid": "3a53f5e7-02f0-4ca1-8d84-40bbfedda43e",
+    "created_at": "2025-07-25T10:10:58.294967",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "complex-scenario",
+      "network-resilience",
+      "accessibility",
+      "auto-generated",
+      "api-integration",
+      "keyboard-navigation",
+      "ui-test",
+      "performance",
+      "navigation"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}
