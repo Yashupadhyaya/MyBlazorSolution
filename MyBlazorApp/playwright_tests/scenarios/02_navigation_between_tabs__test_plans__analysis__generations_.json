@@ -1,0 +1,103 @@
+{
+  "test_name": "Navigation Between Tabs (Test Plans, Analysis, Generations)",
+  "description": "This scenario tests navigation between tabs on the application header to ensure seamless transitions across pages and proper state maintenance.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests",
+    "https://dev.roost.ai/roostgpt/analyses",
+    "https://dev.roost.ai/roostgpt/events"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify that the 'Test Plans' tab is highlighted as active.",
+    "3. Click the 'Analysis' tab in the header navigation.",
+    "4. Verify that the browser navigates to https://dev.roost.ai/roostgpt/analyses.",
+    "5. Verify the 'Analysis' tab is now highlighted as active.",
+    "6. Navigate back to the 'Test Plans' tab.",
+    "7. Verify that the browser navigates back to https://dev.roost.ai/roostgpt/tests.",
+    "8. Click the 'Generations' tab.",
+    "9. Verify that the browser navigates to https://dev.roost.ai/roostgpt/events.",
+    "10. Verify the 'Generations' tab is highlighted as active.",
+    "11. Use the browser back button to navigate back to the 'Test Plans' tab.",
+    "12. Verify state persistence by checking the active tab and previously loaded content.",
+    "13. Perform a search in the 'Test Plans' tab.",
+    "14. Navigate to the 'Analysis' tab.",
+    "15. Return to the 'Test Plans' tab and verify the search query persists.",
+    "16. Repeat the navigation steps in rapid succession to test performance."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/tests']",
+      "text": "Test Plans",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/analyses']",
+      "text": "Analysis",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[href='/roostgpt/events']",
+      "text": "Generations",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests"
+    }
+  ],
+  "expected_results": [
+    "Correct pages are loaded when respective tabs are clicked.",
+    "Active tab highlights update accurately as per the navigation.",
+    "State persistence is maintained between tab navigations.",
+    "Rapid navigation does not degrade performance."
+  ],
+  "edge_cases": [
+    "Navigating to tabs with slow network response.",
+    "Using browser refresh after navigation.",
+    "Rapidly switching tabs back and forth.",
+    "Navigating to a tab while a search is in progress."
+  ],
+  "data_requirements": [
+    "Existing test plans data for 'Test Plans' tab.",
+    "Data for 'Analysis' and 'Generations' tabs."
+  ],
+  "dependencies": [
+    "All tabs ('Test Plans', 'Analysis', 'Generations') must be functional.",
+    "State management for active tabs must be implemented."
+  ],
+  "api_interactions": [
+    "Monitor API calls made during tab navigation.",
+    "Mock responses for data loading in tabs."
+  ],
+  "performance_metrics": [
+    "Page load time for navigation should not exceed 2 seconds.",
+    "Tab transitions should occur within 500ms."
+  ],
+  "accessibility_requirements": [
+    "Tabs must be keyboard navigable.",
+    "ARIA roles for tabs must be properly set."
+  ],
+  "metadata": {
+    "uuid": "ce2589b4-f431-49de-a134-a11efc03c327",
+    "created_at": "2025-07-25T10:17:03.467001",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "ui-test",
+      "network-resilience",
+      "auto-generated",
+      "api-integration",
+      "complex-scenario",
+      "navigation",
+      "accessibility",
+      "performance"
+    ],
+    "estimated_execution_time": 80,
+    "flakiness_potential": "medium"
+  }
+}

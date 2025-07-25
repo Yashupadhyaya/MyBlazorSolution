@@ -1,0 +1,119 @@
+{
+  "test_name": "Pagination Controls Verification",
+  "description": "This test validates the proper functioning of pagination controls for navigating through a list of connectors. It ensures the controls are accessible, navigate to the correct pages, and handle edge cases such as navigating beyond the first or last page.",
+  "type": "navigation",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify that pagination controls are visible at the bottom of the page.",
+    "3. Click the '2' page number button and verify the page updates to show results for page 2.",
+    "4. Click the 'Next' button (>>) and verify the page updates to the next set of results.",
+    "5. Click the 'Previous' button (<<) and verify the page returns to the previous set of results.",
+    "6. Click the 'Last' button and verify the page navigates to the last available page.",
+    "7. Click the 'First' button and verify the page navigates back to the first page.",
+    "8. Click a page number button in rapid succession multiple times and verify no crashes or unexpected behavior occur.",
+    "9. Verify that the disabled state is applied to 'Previous' and 'First' buttons on the first page.",
+    "10. Verify that the disabled state is applied to 'Next' and 'Last' buttons on the last page.",
+    "11. Test keyboard navigation by tabbing through the pagination controls.",
+    "12. Verify that the currently selected page number has a distinct visual indicator.",
+    "13. Verify that the pagination state is preserved when navigating back to the Connectors page from another page."
+  ],
+  "selectors": [
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-first-page-button']",
+      "text": "First",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "paginator-first-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-icon']",
+      "text": "\u00bb",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "arrow-icon"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='arrow-left']",
+      "text": "\u00ab",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "arrow-left"
+    },
+    {
+      "element_type": "button",
+      "selector": "button[data-testid='paginator-last-page-button']",
+      "text": "Last",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "paginator-last-page-button"
+    },
+    {
+      "element_type": "button",
+      "selector": "button",
+      "text": "2",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/connectors"
+    }
+  ],
+  "expected_results": [
+    "Pagination controls are visible and functional.",
+    "Clicking on page numbers navigates to the correct page.",
+    "Disabled states are applied correctly to 'First' and 'Previous' on the first page, and 'Next' and 'Last' on the last page.",
+    "Rapid clicks do not cause crashes or unexpected behavior.",
+    "Keyboard navigation and focus indicators work as expected."
+  ],
+  "edge_cases": [
+    "Click 'Next' button while on the last page.",
+    "Click 'Previous' button while on the first page.",
+    "Rapidly click 'Next' and 'Previous' buttons multiple times.",
+    "Test with a large number of pages to verify performance.",
+    "Verify behavior if no connectors exist (edge case when pagination controls should not appear)."
+  ],
+  "data_requirements": [
+    "Connectors dataset large enough to span 5+ pages.",
+    "Dataset for testing edge case of no connectors."
+  ],
+  "dependencies": [
+    "Pagination feature must be implemented.",
+    "Connectors dataset must be populated.",
+    "The Connectors page must load successfully."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "Monitor API responses for pagination requests."
+  ],
+  "performance_metrics": [
+    "Pagination response time should be under 500ms.",
+    "UI re-renders within 300ms after clicking a pagination button."
+  ],
+  "accessibility_requirements": [
+    "Pagination buttons must be focusable via keyboard.",
+    "Screen readers should correctly announce the current page.",
+    "Distinct visual indicator for the active page."
+  ],
+  "metadata": {
+    "uuid": "edde3f5d-19a5-48c1-acca-cdfee02830f6",
+    "created_at": "2025-07-25T10:17:03.472429",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "ui-test",
+      "auto-generated",
+      "api-integration",
+      "complex-scenario",
+      "navigation",
+      "accessibility",
+      "performance",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 65,
+    "flakiness_potential": "medium"
+  }
+}

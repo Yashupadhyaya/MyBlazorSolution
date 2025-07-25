@@ -1,0 +1,96 @@
+{
+  "test_name": "Search Connectors with Valid and Invalid Inputs",
+  "description": "This test validates the functionality and behavior of the search feature on the Connectors page. It ensures that valid and invalid inputs are handled correctly, results are filtered appropriately, and edge cases such as special characters or empty input are managed gracefully.",
+  "type": "data_validation",
+  "pages": [
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/connectors.",
+    "2. Verify that the search input box is visible and enabled.",
+    "3. Enter a valid connector name (e.g., 'GitHub') into the search box.",
+    "4. Press Enter or wait for the results to filter.",
+    "5. Verify that the results only display connectors matching 'GitHub'.",
+    "6. Clear the search box and enter an invalid connector name (e.g., 'InvalidConnector').",
+    "7. Press Enter or wait for the results to filter.",
+    "8. Verify that no results are displayed and an appropriate message (e.g., 'No results found') is shown.",
+    "9. Test with special characters (e.g., '!@#$%^&*') in the search box and verify behavior.",
+    "10. Leave the search box empty and press Enter or attempt to filter.",
+    "11. Verify that all connectors are displayed as no filter is applied.",
+    "12. Test the case sensitivity by entering both uppercase and lowercase variations of a connector name.",
+    "13. Verify that the results are case-insensitive.",
+    "14. Navigate away from the page and return to verify that the previous search state is not persisted.",
+    "15. Reload the page and ensure the search box is empty and default results are displayed."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='Connector-search-box']",
+      "text": "Search for Connectors",
+      "action": "type",
+      "value": "GitHub",
+      "url_on_page": "https://dev.roost.ai/connectors",
+      "datatest-id": "Connector-search-box"
+    }
+  ],
+  "expected_results": [
+    "The search box is visible and editable.",
+    "Entering a valid connector name filters results correctly.",
+    "Entering an invalid connector name displays no results.",
+    "Special characters do not break the search functionality.",
+    "Empty input clears filters and displays all results.",
+    "Search results are case-insensitive."
+  ],
+  "edge_cases": [
+    "Enter special characters (e.g., '!@#$%^&*') and verify search behavior.",
+    "Enter a very long string (e.g., 255+ characters) into the search box.",
+    "Test with only whitespace entered in the search box.",
+    "Perform rapid consecutive searches with different inputs.",
+    "Test with an XSS payload to verify input sanitization."
+  ],
+  "data_requirements": [
+    "Valid connector name: 'GitHub'",
+    "Invalid connector name: 'InvalidConnector'",
+    "Special characters: '!@#$%^&*'",
+    "Empty input: ''",
+    "Case variations: 'GITHUB', 'github'"
+  ],
+  "dependencies": [
+    "Connectors must exist in the system for filtering.",
+    "The search feature must be implemented and active.",
+    "The page must load successfully with the search box visible."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    "Mock API response for connectors based on search input."
+  ],
+  "performance_metrics": [
+    "Search results render within 300ms after input.",
+    "No UI lag when entering text into the search box."
+  ],
+  "accessibility_requirements": [
+    "The search box must be focusable using the Tab key.",
+    "Screen readers should identify the placeholder text 'Search for Connectors'.",
+    "The search feature should be operable using only a keyboard."
+  ],
+  "metadata": {
+    "uuid": "652030da-1033-435c-8f0f-83e7a5415164",
+    "created_at": "2025-07-25T10:17:03.470027",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "ui-test",
+      "error-handling",
+      "auto-generated",
+      "api-integration",
+      "complex-scenario",
+      "data_validation",
+      "form-submission",
+      "accessibility",
+      "performance"
+    ],
+    "estimated_execution_time": 75,
+    "flakiness_potential": "medium"
+  }
+}
