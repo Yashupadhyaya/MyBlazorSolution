@@ -1,0 +1,100 @@
+{
+  "test_name": "Search Input Validation on Analysis Page",
+  "description": "This test validates the behavior of the search box on the Analysis page, including handling of invalid inputs, edge cases, and special characters.",
+  "type": "data_validation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/analyses"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/analyses.",
+    "2. Locate the search input box with placeholder 'Search for Activities'.",
+    "3. Type a valid search query 'Test Plan A' and verify that the results update dynamically.",
+    "4. Clear the search input box and verify that the full list of activities is restored.",
+    "5. Enter a search query with special characters '!@#$%^&*()' and verify behavior.",
+    "6. Enter an extremely long search query and observe if the input handling fails.",
+    "7. Enter a numeric-only query '123456' and verify results.",
+    "8. Enter an empty query and verify the response.",
+    "9. Test rapid sequential typing of multiple queries to simulate user keystrokes.",
+    "10. Simulate a slow network and test search functionality responsiveness.",
+    "11. Verify that no client-side crashes or unhandled exceptions occur during input."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='events-search-box']",
+      "text": null,
+      "action": "type",
+      "url_on_page": "https://dev.roost.ai/roostgpt/analyses",
+      "datatest-id": "events-search-box",
+      "value": null
+    }
+  ],
+  "expected_results": [
+    "Valid search queries return appropriate results.",
+    "Special character queries do not crash the page and handle gracefully.",
+    "Empty queries restore the full list of activities.",
+    "Extremely long queries are handled without client-side issues.",
+    "Rapid typing does not cause lag or crashes in the application."
+  ],
+  "edge_cases": [
+    "Enter only whitespace characters into the search box.",
+    "Test input with potential SQL injection strings ('SELECT * FROM Users;').",
+    "Simulate multiple users typing search queries simultaneously.",
+    "Test search input during a network disconnect.",
+    "Test input of emojis and unusual Unicode characters."
+  ],
+  "data_requirements": [
+    "search_query_valid: 'Test Plan A'",
+    "search_query_special: '!@#$%^&*()'",
+    "search_query_empty: ''",
+    "search_query_long: 'Test Plan A Test Plan A Test Plan A Test Plan A'",
+    "search_query_numeric: '123456'"
+  ],
+  "dependencies": [
+    "Search functionality must be integrated with the backend service.",
+    "User must have access to the Analysis page.",
+    "Application server must be running and accessible."
+  ],
+  "api_interactions": [
+    {
+      "endpoint": "/searchActivities",
+      "method": "POST",
+      "mock_response": {
+        "status": 400,
+        "error": "Invalid query format."
+      }
+    }
+  ],
+  "performance_metrics": [
+    "Search results update within < 1 second of input.",
+    "Application handles multiple keystrokes without lag."
+  ],
+  "accessibility_requirements": [
+    "Ensure the search box has aria-label for screen readers.",
+    "Verify keyboard navigation compatibility for the search input.",
+    "Ensure the search box passes WCAG contrast ratio requirements."
+  ],
+  "metadata": {
+    "uuid": "a583b26a-8815-4666-8fae-413c76144875",
+    "created_at": "2025-07-25T09:43:15.603271",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "accessibility",
+      "complex-scenario",
+      "error-handling",
+      "form-submission",
+      "data_validation",
+      "concurrency",
+      "network-resilience"
+    ],
+    "estimated_execution_time": 55,
+    "flakiness_potential": "medium"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "test_name": "Test Navigation Between Tabs",
+  "description": "This scenario validates that users can navigate between the links ('RoostGPT', 'Admin', 'Connectors') on the navigation bar and return to the current page.",
+  "type": "navigation",
+  "complexity": "high",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/events",
+    "https://dev.roost.ai/roostgpt",
+    "https://dev.roost.ai/admin/app",
+    "https://dev.roost.ai/connectors"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/events.",
+    "2. Verify the visibility and clickable state of the 'RoostGPT' tab.",
+    "3. Click on the 'RoostGPT' tab and verify that the user is navigated to https://dev.roost.ai/roostgpt.",
+    "4. Assert that the 'RoostGPT' tab is highlighted as active.",
+    "5. Click on the 'Admin' tab and verify that the user is navigated to https://dev.roost.ai/admin/app.",
+    "6. Assert that the 'Admin' tab is highlighted as active.",
+    "7. Click on the 'Connectors' tab and verify that the user is navigated to https://dev.roost.ai/connectors.",
+    "8. Assert that the 'Connectors' tab is highlighted as active.",
+    "9. Click back to the 'Generations' tab and verify navigation to https://dev.roost.ai/roostgpt/events.",
+    "10. Assert that the 'Generations' tab is highlighted as active.",
+    "11. Reload the page and verify that the active tab state persists.",
+    "12. Test navigation by using the browser back and forward buttons.",
+    "13. Verify navigation behavior on mobile viewport sizes."
+  ],
+  "selectors": [
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='roostGPT-tab']",
+      "text": "RoostGPT",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": "roostGPT-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='admin-tab']",
+      "text": "Admin",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": "admin-tab"
+    },
+    {
+      "element_type": "link",
+      "selector": "a[data-testid='connectors-tab']",
+      "text": "Connectors",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/roostgpt/events",
+      "datatest-id": "connectors-tab"
+    }
+  ],
+  "expected_results": [
+    "Each tab navigates to the correct URL.",
+    "The active tab is visually highlighted based on the current page.",
+    "Navigation back to 'Generations' restores the correct active state.",
+    "Reloading the page retains the active tab state."
+  ],
+  "edge_cases": [
+    "Click a tab while the page is still loading.",
+    "Test navigation with slow network conditions.",
+    "Try accessing tabs via keyboard navigation.",
+    "Test clicking on multiple tabs rapidly in succession.",
+    "Verify tab navigation works across mobile viewport sizes."
+  ],
+  "data_requirements": [],
+  "dependencies": [
+    "Navigation tabs must be functional and mapped to correct URLs.",
+    "Pages must be accessible and not return 404 errors.",
+    "Page load times must be reasonable for navigation tests."
+  ],
+  "api_interactions": [],
+  "performance_metrics": [
+    "Tab navigation should complete within 500ms.",
+    "Page load times for each tab should not exceed 2 seconds."
+  ],
+  "accessibility_requirements": [
+    "Tabs must be navigable via keyboard (tab and enter keys).",
+    "Active tabs must be visually and programmatically marked for screen readers."
+  ],
+  "metadata": {
+    "uuid": "a6b9cc99-a7c7-40e4-9a84-3a2e1718eb29",
+    "created_at": "2025-07-25T09:43:15.580998",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "responsive",
+      "navigation",
+      "accessibility",
+      "network-resilience"
+    ],
+    "estimated_execution_time": 65,
+    "flakiness_potential": "medium"
+  }
+}

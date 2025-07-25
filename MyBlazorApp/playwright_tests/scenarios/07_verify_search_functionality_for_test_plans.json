@@ -1,0 +1,114 @@
+{
+  "test_name": "Verify Search Functionality for Test Plans",
+  "description": "This scenario tests the search functionality available on the 'Test Plans' page. It ensures valid, invalid, and edge cases are handled correctly, and the search results are updated dynamically based on input.",
+  "type": "data_validation",
+  "pages": [
+    "https://dev.roost.ai/roostgpt/tests"
+  ],
+  "steps": [
+    "1. Navigate to https://dev.roost.ai/roostgpt/tests.",
+    "2. Verify the visibility of the search input field with placeholder 'Search for Test Plans'.",
+    "3. Type a valid query (e.g., 'testplan1') into the search field.",
+    "4. Assert the number of displayed results matches the query.",
+    "5. Clear the search input and verify all results are displayed.",
+    "6. Type an invalid query (e.g., 'randomXYZ') into the search field.",
+    "7. Verify that no results are displayed and a 'No Results Found' message appears.",
+    "8. Test boundary condition by entering a maximum-length query (e.g., 256 characters).",
+    "9. Verify the application does not crash and handles the input gracefully.",
+    "10. Type a query with special characters (e.g., '@#$%^') and verify results.",
+    "11. Reload the page and verify the search state does not persist.",
+    "12. Conduct rapid consecutive searches and verify results update dynamically.",
+    "13. Verify search responsiveness on different viewport sizes.",
+    "14. Ensure accessibility compliance for the search field with proper ARIA attributes.",
+    "15. Test keyboard navigation (e.g., Tab key) to focus and interact with the search field.",
+    "16. Verify API interaction for search queries and assert correct endpoints are called.",
+    "17. Test search input with SQL injection attempts and ensure application security.",
+    "18. Verify error handling for network failures during search API calls.",
+    "19. Assert no duplicate results are displayed under any search condition.",
+    "20. Verify that the placeholder text reappears when the search input is cleared."
+  ],
+  "selectors": [
+    {
+      "element_type": "input",
+      "selector": "input[data-testid='tests-search-box']",
+      "text": "Search for Test Plans",
+      "action": "type",
+      "value": "testplan1",
+      "url_on_page": "https://dev.roost.ai/roostgpt/tests",
+      "datatest-id": "tests-search-box"
+    }
+  ],
+  "expected_results": [
+    "Search query 'testplan1' returns expected results.",
+    "Search query 'randomXYZ' returns no results and displays 'No Results Found'.",
+    "Maximum-length search query is handled without crashing the application.",
+    "Special character query returns results or an appropriate message.",
+    "Search results dynamically update without requiring page reload."
+  ],
+  "edge_cases": [
+    "Search with an empty string.",
+    "Input query exceeding maximum length.",
+    "Use special characters in the search query.",
+    "Rapid consecutive searches causing potential API throttling.",
+    "Network failure during search query execution."
+  ],
+  "data_requirements": [
+    {
+      "valid_query": "testplan1"
+    },
+    {
+      "invalid_query": "randomXYZ"
+    },
+    {
+      "boundary_query": "x"
+    },
+    ".repeat(256)",
+    {
+      "special_characters_query": "@#$%^",
+      "sql_injection_query": "'; DROP TABLE testplans;--"
+    }
+  ],
+  "dependencies": [
+    "Search API endpoint must be functional.",
+    "Database must have test plans available for valid queries.",
+    "Error handling must be implemented for search API."
+  ],
+  "complexity": "high",
+  "api_interactions": [
+    {
+      "endpoint": "/api/search",
+      "method": "GET",
+      "expected_response": "200 OK with results matching the query"
+    }
+  ],
+  "performance_metrics": [
+    "Search results load time (<2 seconds).",
+    "Search API response time (<1 second)."
+  ],
+  "accessibility_requirements": [
+    "WCAG 2.1 AA compliance: ARIA attributes for search input field.",
+    "Keyboard navigation support for the search field."
+  ],
+  "metadata": {
+    "uuid": "77323e7c-e667-4f77-b525-8269316964d8",
+    "created_at": "2025-07-25T09:43:15.589039",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "api-integration",
+      "auto-generated",
+      "ui-test",
+      "performance",
+      "complex-scenario",
+      "error-handling",
+      "responsive",
+      "form-submission",
+      "data_validation",
+      "accessibility",
+      "keyboard-navigation"
+    ],
+    "estimated_execution_time": 100,
+    "flakiness_potential": "medium"
+  }
+}
