@@ -1,0 +1,90 @@
+{
+  "test_name": "Validate Navigation to Privacy Policy from Login Page",
+  "description": "This test ensures that users can navigate to the Privacy Policy page from the login page and verify its content.",
+  "type": "navigation",
+  "pages": [
+    "https://dev.roost.ai/login",
+    "https://roost.ai/privacy-policy"
+  ],
+  "steps": [
+    "Navigate to the login page.",
+    "Locate and click the 'Privacy Policy' link in the footer.",
+    "Verify redirection to the Privacy Policy page (https://roost.ai/privacy-policy).",
+    "Check that the Privacy Policy content is displayed correctly.",
+    "Verify the 'Privacy Policy' page is accessible and responsive.",
+    "Return to the login page using the browser's back button.",
+    "Confirm the login page is displayed correctly after navigation."
+  ],
+  "selectors": [
+    {
+      "element_type": "a",
+      "selector": "//a[@href='https://roost.ai/privacy-policy' and contains(@class, 'footer-item')]",
+      "text": "Privacy Policy",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    }
+  ],
+  "expected_results": [
+    "User is redirected to the Privacy Policy page.",
+    "Privacy Policy content is displayed accurately.",
+    "Login page is displayed correctly when the user navigates back."
+  ],
+  "edge_cases": [
+    "Privacy Policy page fails to load.",
+    "Broken link to the Privacy Policy page.",
+    "User's browser blocks external links.",
+    "Privacy Policy content is outdated or incorrect.",
+    "Navigation back to the login page fails."
+  ],
+  "data_requirements": [
+    "Valid URL for the Privacy Policy page.",
+    "Correct content on the Privacy Policy page.",
+    "Internet connectivity for external navigation.",
+    "Functional browser back button.",
+    "Accessible footer link on the login page."
+  ],
+  "dependencies": [
+    "Privacy Policy page is hosted and operational.",
+    "Footer links are visible and clickable.",
+    "Login page is fully loaded before navigation.",
+    "Browser history functionality is enabled.",
+    "No ad-blockers or extensions interfere with navigation."
+  ],
+  "complexity": "medium",
+  "api_interactions": [
+    "None"
+  ],
+  "performance_metrics": [
+    "Time taken to load the Privacy Policy page.",
+    "Responsiveness of the Privacy Policy page.",
+    "Time taken to return to the login page."
+  ],
+  "accessibility_requirements": [
+    "Ensure the 'Privacy Policy' link has an appropriate ARIA label.",
+    "Verify the Privacy Policy page is navigable via keyboard.",
+    "Check for screen reader compatibility on the Privacy Policy page.",
+    "Ensure high contrast for all text on the Privacy Policy page.",
+    "Verify proper focus management after returning to the login page."
+  ],
+  "additional_data": {},
+  "metadata": {
+    "uuid": "4f1d5db4-c4c8-4085-ada5-4ccf57f081b0",
+    "created_at": "2025-09-04T12:18:55.237271Z",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "accessibility",
+      "api-integration",
+      "authentication",
+      "auto-generated",
+      "cross-browser",
+      "mobile",
+      "navigation",
+      "performance",
+      "ui-test"
+    ],
+    "estimated_execution_time": 35,
+    "flakiness_potential": "medium"
+  }
+}
