@@ -1,0 +1,81 @@
+{
+  "test_name": "Verify Navigation to Documentation Page",
+  "description": "This test ensures that users can navigate to the Documentation page from the login page and view the platform's documentation content.",
+  "type": "navigation",
+  "pages": [
+    "https://dev.roost.ai/login",
+    "https://docs.roost.ai"
+  ],
+  "steps": [
+    "Navigate to the login page at https://dev.roost.ai/login.",
+    "Verify that the 'Documentation' link is visible and enabled in the footer.",
+    "Click on the 'Documentation' link.",
+    "Wait for the Documentation page to load.",
+    "Verify that the content of the Documentation page is displayed correctly."
+  ],
+  "selectors": [
+    {
+      "element_type": "a",
+      "selector": "//a[@href='https://docs.roost.ai' and contains(@class, 'footer-item')]",
+      "text": "Documentation",
+      "action": "click",
+      "url_on_page": "https://dev.roost.ai/login"
+    }
+  ],
+  "expected_results": [
+    "The Documentation page is displayed when the link is clicked.",
+    "The content on the Documentation page is loaded without errors."
+  ],
+  "edge_cases": [
+    "The 'Documentation' link is not visible or enabled.",
+    "The Documentation page fails to load due to a network error.",
+    "The Documentation page content is incomplete or displays errors.",
+    "The user clicks the link but closes the browser before the page loads.",
+    "The Documentation page URL is incorrect or broken."
+  ],
+  "data_requirements": [
+    "Access to the Documentation page URL.",
+    "Correct configuration of the Documentation page link on the login page.",
+    "Network connectivity to load the Documentation page."
+  ],
+  "dependencies": [
+    "The Documentation page must be operational.",
+    "The footer navigation links must be correctly configured.",
+    "The browser must support HTTPS."
+  ],
+  "complexity": "low",
+  "api_interactions": [
+    "No direct API interactions for this test."
+  ],
+  "performance_metrics": [
+    "Time taken to load the Documentation page."
+  ],
+  "accessibility_requirements": [
+    "The 'Documentation' link should be accessible via a screen reader.",
+    "Keyboard navigation should allow users to focus on the 'Documentation' link.",
+    "The Documentation page content should be structured for screen readers."
+  ],
+  "additional_data": {},
+  "metadata": {
+    "uuid": "c9abc7b7-918c-4650-b921-0020bdb7c9c6",
+    "created_at": "2025-09-04T12:18:55.237562Z",
+    "complexity": "high",
+    "risk_level": "high",
+    "priority": "high",
+    "tags": [
+      "accessibility",
+      "api-integration",
+      "authentication",
+      "auto-generated",
+      "cross-browser",
+      "error-handling",
+      "form-submission",
+      "navigation",
+      "network-resilience",
+      "performance",
+      "ui-test"
+    ],
+    "estimated_execution_time": 25,
+    "flakiness_potential": "high"
+  }
+}
